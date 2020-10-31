@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Recordatorio de Medicamentos</string>
+    <string name="txtBienvenida">¡Bienvenido!</string>
+    <string name="txtUsuario">Ingrese un usuario</string>
+    <string name="txtContra">Ingrese una contraseña</string>
+    <string name="btnEnviar">Enviar</string>
 </resources>
