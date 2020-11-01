@@ -3,5 +3,5 @@
     <string name="txtBienvenida">¡Bienvenido!</string>
     <string name="txtUsuario">Ingrese un usuario</string>
     <string name="txtContra">Ingrese una contraseña</string>
-    <string name="btnEnviar">Enviar</string>
+    <string name="btnAcceder">Acceder</string>
 </resources>
