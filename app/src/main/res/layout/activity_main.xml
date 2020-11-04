@@ -4,55 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBEEC6"
+    android:background="@drawable/principal"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtBienvenida"
-        android:layout_width="139dp"
-        android:layout_height="0dp"
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="56dp"
-        android:text="@string/txtBienvenida"
-        android:textColor="#000000"
+        android:text="Recordatorio de medicamentos"
+        android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtUsuario"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/txtUsuario"
-        android:layout_width="224dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginLeft="77dp"
-        android:layout_marginBottom="26dp"
-        android:hint="@string/txtUsuario"
-        app:layout_constraintBottom_toTopOf="@+id/txtContra"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBienvenida" />
-
-    <EditText
-        android:id="@+id/txtContra"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="36dp"
-        android:hint="@string/txtContra"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/txtUsuario"
-        app:layout_constraintStart_toStartOf="@+id/txtUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSalir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="392dp"
-        android:text="@string/btnAcceder"
+        android:layout_marginBottom="60dp"
+        android:text="Salir"
+        android:textStyle="bold"
+        app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContra" />
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/txtDescripcion"
+        android:layout_width="389dp"
+        android:layout_height="167dp"
+        android:layout_marginBottom="160dp"
+        android:text="Bienvenido, te ayudaremos con tu tratamiento medico, administrando todo lo relacionado a tus recetas y poniendo a tu alcenze doctores especialistas"
+        android:textColor="@color/purple_700"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSalir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegistrarme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Registrarme"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:backgroundTint="@color/green"
+        app:layout_constraintBottom_toTopOf="@+id/btnSalir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
