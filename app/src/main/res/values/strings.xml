@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Recordatorio de Medicamentos</string>
-    <string name="txtBienvenida">¡Bienvenido!</string>
-    <string name="txtUsuario">Ingrese un usuario</string>
-    <string name="txtContra">Ingrese una contraseña</string>
-    <string name="btnAcceder">Acceder</string>
+    <string name="txtRegUsu">Registro de usuario</string>
+    <string name="txtNumTel">Numero de telefono:</string>
+    <string name="telefono">Telefono</string>
+    <string name="txtNomCom">Nombre completo:</string>
+    <string name="nombre">Nombre</string>
+    <string name="registrarme">Registrarme</string>
+    <string name="iniSes">Iniciar Sesion</string>
+    <string name="salir">Salir</string>
+    <string name="bienvenido">Bienvenido, te ayudaremos con tu tratamiento médico, administrando todo lo relacionado a tus recetas y poniendo a tu alcance doctores especialistas.</string>
+    <string name="salir">Salir</string>
 </resources>
