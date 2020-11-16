@@ -25,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
+        android:onClick="salir"
         android:text="@string/salir"
         android:textStyle="bold"
         app:backgroundTint="@color/red"
