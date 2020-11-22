@@ -12,7 +12,7 @@ public class Registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
     }
-    public void salir( View v){
+    public void salir(View v){
         System.exit(0);
     }
 }
