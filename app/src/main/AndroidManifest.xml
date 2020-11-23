@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecordatorioDeMedicamentos">
-        <activity android:name=".Registrar"></activity>
+        <activity android:name=".InicioSesion"></activity>
+        <activity android:name=".Registrar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

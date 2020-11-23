@@ -17,7 +17,14 @@ public class MainActivity extends AppCompatActivity {
         //correo = findViewById(R.id.txtUsuario);
         //contra = findViewById(R.id.txtContra);
     }
-    public void salir( View v){
-        System.exit(0);
+    public void onClick(View v){
+        switch(v.getId()){
+            case R.id.btnSalir:
+                System.exit(0);
+                break;
+            case R.id.btnRegistrar:
+                startActivity(new Intent(MainActivity.this, Registrar.class));
+                break;
+        }
     }
 }

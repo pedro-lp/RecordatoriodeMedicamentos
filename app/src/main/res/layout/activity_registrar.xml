@@ -34,11 +34,11 @@
         app:layout_constraintTop_toBottomOf="@+id/txtTituloR" />
 
     <TextView
-        android:id="@+id/lblNumero"
+        android:id="@+id/lblCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/txtNumTel"
+        android:layout_marginTop="36dp"
+        android:text="Correo electronico:"
         android:textColor="@color/purple_700"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -50,26 +50,39 @@
         android:id="@+id/lblNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="28dp"
         android:text="@string/txtNomCom"
         android:textColor="@color/purple_700"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTelefono" />
+        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
+
+    <TextView
+        android:id="@+id/lblNombre2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:text="Contraseña"
+        android:textColor="@color/purple_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
 
     <EditText
-        android:id="@+id/editTelefono"
+        android:id="@+id/editCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="@string/telefono"
+        android:hint="Correo electronico"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblNumero" />
+        app:layout_constraintTop_toBottomOf="@+id/lblCorreo" />
 
     <EditText
         android:id="@+id/editNombre"
@@ -83,12 +96,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblNombre" />
 
+    <EditText
+        android:id="@+id/editContrasenia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblNombre" />
+
     <Button
         android:id="@+id/btnSalirR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:onClick="salir"
+        android:onClick="onClick"
         android:text="@string/salir"
         android:textStyle="bold"
         app:backgroundTint="@color/red"
@@ -103,6 +129,7 @@
         android:layout_marginEnd="155dp"
         android:layout_marginRight="155dp"
         android:layout_marginBottom="90dp"
+        android:onClick="onClick"
         android:text="@string/registrarme"
         android:textStyle="bold"
         app:backgroundTint="#02B102"
@@ -115,6 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"
+        android:onClick="onClick"
         android:text="@string/iniSes"
         android:textStyle="bold"
         app:backgroundTint="#2C2CF5"
