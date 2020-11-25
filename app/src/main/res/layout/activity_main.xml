@@ -45,16 +45,17 @@
         android:text="@string/registrarme"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:backgroundTint="#3C3F41"
+        app:backgroundTint="#3A9806"
         app:layout_constraintBottom_toTopOf="@+id/btnSalir"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#077E07" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="190dp"
         android:layout_height="173dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toTopOf="@+id/txtDescripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

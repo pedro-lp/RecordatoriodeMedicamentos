@@ -11,7 +11,7 @@
         android:id="@+id/txtTituloR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -24,7 +24,7 @@
         android:id="@+id/lblTituloR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@string/txtRegUsu"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -50,7 +50,7 @@
         android:id="@+id/lblNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="25dp"
         android:text="@string/txtNomCom"
         android:textColor="@color/purple_700"
         android:textSize="18sp"
@@ -63,26 +63,14 @@
         android:id="@+id/lblNombre2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="20dp"
         android:text="Contraseña"
         android:textColor="@color/purple_700"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
-
-    <EditText
-        android:id="@+id/editCorreo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Correo electronico"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/editNombre" />
 
     <EditText
         android:id="@+id/editNombre"
@@ -149,5 +137,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnRegistrar" />
+
+    <EditText
+        android:id="@+id/editCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblCorreo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

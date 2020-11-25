@@ -23,7 +23,7 @@ import java.util.Map;
 public class Registrar extends AppCompatActivity {
     private Button btnSalir, btnInicioSesion, btnRegistrar;
     private EditText txtNombre, txtCorreo,txtContrasenia;
-    private String nombre, correo, contrasenia;
+    private String nombre = "", correo = "", contrasenia = "";
     FirebaseAuth aut;
     DatabaseReference refBD;
     @Override
@@ -49,9 +49,9 @@ public class Registrar extends AppCompatActivity {
             case R.id.btnInicioSesion:
                 break;
             case R.id.btnRegistrar:
-                nombre = txtNombre.getText().toString();
-                correo = txtCorreo.getText().toString();
-                contrasenia = txtContrasenia.getText().toString();
+                nombre = txtNombre.getText().toString().trim();
+                correo = txtCorreo.getText().toString().trim();
+                contrasenia = txtContrasenia.getText().toString().trim();
                 if(!nombre.isEmpty() && !correo.isEmpty() && !contrasenia.isEmpty()){
                     if(contrasenia.length() >= 6){
                         registrar();
@@ -66,7 +66,7 @@ public class Registrar extends AppCompatActivity {
     }
 
     private void registrar() {
-        aut.createUserWithEmailAndPassword(correo,contrasenia).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        aut.createUserWithEmailAndPassword(correo, contrasenia).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){

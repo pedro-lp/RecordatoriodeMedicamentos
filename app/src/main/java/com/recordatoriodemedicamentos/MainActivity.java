@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnSalir:
                 System.exit(0);
                 break;
-            case R.id.btnRegistrar:
+            case R.id.btnRegistrarme:
                 startActivity(new Intent(MainActivity.this, Registrar.class));
                 break;
         }

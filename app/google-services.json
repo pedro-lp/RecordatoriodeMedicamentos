@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "432215885920",
-    "firebase_url": "https://recordatorio-de-medicame-cfb2c.firebaseio.com",
-    "project_id": "recordatorio-de-medicame-cfb2c",
-    "storage_bucket": "recordatorio-de-medicame-cfb2c.appspot.com"
+    "project_number": "840837734489",
+    "firebase_url": "https://proyectomoviles-2e728.firebaseio.com",
+    "project_id": "proyectomoviles-2e728",
+    "storage_bucket": "proyectomoviles-2e728.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:432215885920:android:fd1d2117fe2220b89bdb05",
+        "mobilesdk_app_id": "1:840837734489:android:f2241a5d0c47a42d415148",
         "android_client_info": {
           "package_name": "com.recordatoriodemedicamentos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "432215885920-9bpu8gq706knskeers02pvt8thg38pph.apps.googleusercontent.com",
+          "client_id": "840837734489-0cr3pog0u9tk12h24uq360mp5ms00nk3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDtbAOgVopB83ZVw0hRpWaQZ7GGgb6Lq7Y"
+          "current_key": "AIzaSyAV9Nr9A63_cjpJTFYF1YtrPZzaHG5pMIw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "432215885920-9bpu8gq706knskeers02pvt8thg38pph.apps.googleusercontent.com",
+              "client_id": "840837734489-0cr3pog0u9tk12h24uq360mp5ms00nk3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
