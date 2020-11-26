@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.recordatoriodemedicamentos">
-    <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecordatorioDeMedicamentos">
-        <activity android:name=".InicioSesion"></activity>
+        <activity android:name=".PerfilUsuario"></activity>
+        <activity android:name=".InicioSesion" />
         <activity android:name=".Registrar" />
         <activity android:name=".MainActivity">
             <intent-filter>

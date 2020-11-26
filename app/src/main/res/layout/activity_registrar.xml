@@ -8,19 +8,6 @@
     tools:context=".Registrar">
 
     <TextView
-        android:id="@+id/txtTituloR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/lblTituloR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +18,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTituloR" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/lblCorreo"
@@ -106,6 +93,9 @@
         android:text="@string/salir"
         android:textStyle="bold"
         app:backgroundTint="@color/red"
+        app:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:iconGravity="end"
+        app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -114,8 +104,8 @@
         android:id="@+id/btnRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="155dp"
-        android:layout_marginRight="155dp"
+        android:layout_marginEnd="185dp"
+        android:layout_marginRight="185dp"
         android:layout_marginBottom="90dp"
         android:onClick="onClick"
         android:text="@string/registrarme"
@@ -131,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"
         android:onClick="onClick"
-        android:text="@string/iniSes"
+        android:text="Tengo una cuenta"
         android:textStyle="bold"
         app:backgroundTint="#2C2CF5"
         app:layout_constraintBottom_toBottomOf="parent"

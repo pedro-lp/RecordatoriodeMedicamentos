@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Registrar extends AppCompatActivity {
-    private Button btnSalir, btnInicioSesion, btnRegistrar;
     private EditText txtNombre, txtCorreo,txtContrasenia;
     private String nombre = "", correo = "", contrasenia = "";
     FirebaseAuth aut;
@@ -30,9 +29,6 @@ public class Registrar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
-        btnSalir = (Button) findViewById(R.id.btnSalir);
-        btnInicioSesion = (Button) findViewById(R.id.btnInicioSesion);
-        btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
 
         txtNombre = (EditText) findViewById(R.id.editNombre);
         txtContrasenia = (EditText) findViewById(R.id.editContrasenia);
@@ -43,10 +39,13 @@ public class Registrar extends AppCompatActivity {
     }
     public void onClick(View v){
         switch(v.getId()){
-            case R.id.btnSalir:
-                System.exit(0);
+            case R.id.btnSalirR:
+                startActivity(new Intent(Registrar.this, MainActivity.class));
+                finish();
                 break;
             case R.id.btnInicioSesion:
+                startActivity(new Intent(Registrar.this, InicioSesion.class));
+                finish();
                 break;
             case R.id.btnRegistrar:
                 nombre = txtNombre.getText().toString().trim();
@@ -92,5 +91,12 @@ public class Registrar extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(aut.getCurrentUser() != null){
+            startActivity(new Intent(Registrar.this, PerfilUsuario.class));
+        }
     }
 }

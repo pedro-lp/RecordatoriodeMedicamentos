@@ -16,6 +16,9 @@
         android:text="@string/salir"
         android:textStyle="bold"
         app:backgroundTint="@color/red"
+        app:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:iconGravity="end"
+        app:iconSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -37,15 +40,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnRegistrarme"
+        android:id="@+id/btnEntrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:onClick="onClick"
-        android:text="@string/registrarme"
+        android:text="Aceptar"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:backgroundTint="#3A9806"
+        app:icon="@android:drawable/ic_menu_set_as"
+        app:iconGravity="start|end|textStart"
         app:layout_constraintBottom_toTopOf="@+id/btnSalir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,4 +66,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
