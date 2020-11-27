@@ -1,7 +1,6 @@
 package com.recordatoriodemedicamentos;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +12,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void onClick(View v){
-        switch(v.getId()){
+
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.btnSalir:
                 Intent i = new Intent(Intent.ACTION_MAIN);
                 i.addCategory(Intent.CATEGORY_HOME);

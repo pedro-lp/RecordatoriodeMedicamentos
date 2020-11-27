@@ -7,6 +7,17 @@
     <string name="nombre">Nombre</string>
     <string name="registrarme">Registrarme</string>
     <string name="iniSes">Iniciar Sesion</string>
+    <string name="inicioSes">Inicio de sesión</string>
+    <string name="correoElec">Correo electronico:</string>
+    <string name="correo">Correo</string>
     <string name="salir">Salir</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="contra">Contraseña:</string>
+    <string name="contra2">Contraseña</string>
+    <string name="acceder">Acceder</string>
+    <string name="bienvenidotxt">¡Bienvenido a tu perfil!</string>
+    <string name="cerrarsesion">Cerrar sesión</string>
+    <string name="atras">Atras</string>
+    <string name="tengocuenta">Tengo una cuenta</string>
     <string name="bienvenido">Bienvenido, te ayudaremos con tu tratamiento médico, administrando todo lo relacionado a tus recetas y poniendo a tu alcance doctores especialistas.</string>
 </resources>

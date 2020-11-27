@@ -22,6 +22,7 @@ public class PerfilUsuario extends AppCompatActivity {
     TextView usuario;
     FirebaseAuth auth;
     DatabaseReference db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +34,9 @@ public class PerfilUsuario extends AppCompatActivity {
         db = FirebaseDatabase.getInstance().getReference();
         informacion();
     }
-    public void onClick(View v){
-        switch(v.getId()){
+
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.btnSalirPerfil:
                 //startActivity(new Intent(PerfilUsuario.this, MainActivity.class));
                 Intent i = new Intent(Intent.ACTION_MAIN);
@@ -49,12 +51,13 @@ public class PerfilUsuario extends AppCompatActivity {
                 break;
         }
     }
-    private void informacion(){
+
+    private void informacion() {
         String id = auth.getCurrentUser().getUid();
         db.child("usuarios").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     String nombre = snapshot.child("nombre").getValue().toString();
                     usuario.setText(nombre);
                 }

@@ -21,6 +21,7 @@ public class InicioSesion extends AppCompatActivity {
     private EditText editCorreo, editContrasenia;
     private String correo = "", contrasenia = "";
     private FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,31 +30,31 @@ public class InicioSesion extends AppCompatActivity {
         editContrasenia = (EditText) findViewById(R.id.editContraseniaLogin);
         btnAcceder = (Button) findViewById(R.id.btnAcceder);
         auth = FirebaseAuth.getInstance();
-        
+
         btnAcceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 correo = editCorreo.getText().toString().trim();
                 contrasenia = editContrasenia.getText().toString().trim();
-                
-                if(!correo.isEmpty() && !contrasenia.isEmpty()){
+
+                if (!correo.isEmpty() && !contrasenia.isEmpty()) {
                     login();
-                }else{
+                } else {
                     Toast.makeText(InicioSesion.this, "Rellena los campos solicitados", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        
+
     }
 
     private void login() {
-        auth.signInWithEmailAndPassword(correo,contrasenia).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        auth.signInWithEmailAndPassword(correo, contrasenia).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    startActivity(new Intent(InicioSesion.this,PerfilUsuario.class));
+                if (task.isSuccessful()) {
+                    startActivity(new Intent(InicioSesion.this, PerfilUsuario.class));
                     finish();
-                }else{
+                } else {
                     Toast.makeText(InicioSesion.this, "No fue posible iniciar sesion, comprueba los datos", Toast.LENGTH_SHORT).show();
                 }
             }

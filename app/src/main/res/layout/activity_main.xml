@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
+    android:background="#60FFE5E5"
     tools:context=".MainActivity">
 
     <Button
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:onClick="onClick"
-        android:text="Aceptar"
+        android:text="@string/aceptar"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:backgroundTint="#3A9806"

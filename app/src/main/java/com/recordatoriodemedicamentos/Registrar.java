@@ -21,10 +21,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Registrar extends AppCompatActivity {
-    private EditText txtNombre, txtCorreo,txtContrasenia;
+    private EditText txtNombre, txtCorreo, txtContrasenia;
     private String nombre = "", correo = "", contrasenia = "";
     FirebaseAuth aut;
     DatabaseReference refBD;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +38,9 @@ public class Registrar extends AppCompatActivity {
         aut = FirebaseAuth.getInstance();
         refBD = FirebaseDatabase.getInstance().getReference();
     }
-    public void onClick(View v){
-        switch(v.getId()){
+
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.btnSalirR:
                 startActivity(new Intent(Registrar.this, MainActivity.class));
                 finish();
@@ -51,13 +53,13 @@ public class Registrar extends AppCompatActivity {
                 nombre = txtNombre.getText().toString().trim();
                 correo = txtCorreo.getText().toString().trim();
                 contrasenia = txtContrasenia.getText().toString().trim();
-                if(!nombre.isEmpty() && !correo.isEmpty() && !contrasenia.isEmpty()){
-                    if(contrasenia.length() >= 6){
+                if (!nombre.isEmpty() && !correo.isEmpty() && !contrasenia.isEmpty()) {
+                    if (contrasenia.length() >= 6) {
                         registrar();
-                    }else{
+                    } else {
                         Toast.makeText(this, "La contraseña debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Toast.makeText(this, "Debe rellenar los campos solicitados", Toast.LENGTH_LONG).show();
                 }
                 break;
@@ -68,34 +70,35 @@ public class Registrar extends AppCompatActivity {
         aut.createUserWithEmailAndPassword(correo, contrasenia).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Map<String, Object> map = new HashMap<>();
-                    map.put("nombre",nombre);
-                    map.put("correo",correo);
-                    map.put("contrasenia",contrasenia);
+                    map.put("nombre", nombre);
+                    map.put("correo", correo);
+                    map.put("contrasenia", contrasenia);
 
                     String id = aut.getCurrentUser().getUid();
                     refBD.child("usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
-                            if(task2.isSuccessful()){
-                                startActivity(new Intent(Registrar.this,InicioSesion.class));
+                            if (task2.isSuccessful()) {
+                                startActivity(new Intent(Registrar.this, InicioSesion.class));
                                 finish();
-                            }else{
+                            } else {
                                 Toast.makeText(Registrar.this, "Ah ocurrido un error con los datos", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-                }else{
+                } else {
                     Toast.makeText(Registrar.this, "No fue posible registrar el usuario", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
     @Override
     protected void onStart() {
         super.onStart();
-        if(aut.getCurrentUser() != null){
+        if (aut.getCurrentUser() != null) {
             startActivity(new Intent(Registrar.this, PerfilUsuario.class));
         }
     }
