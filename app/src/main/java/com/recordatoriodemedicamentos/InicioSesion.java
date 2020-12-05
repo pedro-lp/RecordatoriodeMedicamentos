@@ -26,6 +26,9 @@ public class InicioSesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
+        MyToolbar.show(this,"Inicio de Sesión",true);
+
+
         editCorreo = (EditText) findViewById(R.id.editCorreoLogin);
         editContrasenia = (EditText) findViewById(R.id.editContraseniaLogin);
         btnAcceder = (Button) findViewById(R.id.btnAcceder);
