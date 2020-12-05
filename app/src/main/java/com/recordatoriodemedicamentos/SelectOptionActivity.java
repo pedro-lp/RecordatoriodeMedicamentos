@@ -34,12 +34,12 @@ public class SelectOptionActivity extends AppCompatActivity {
     }
 
     public void Login() {
-        Intent intent = new Intent(SelectOptionActivity.this, PerfilUsuario.class);
+        Intent intent = new Intent(SelectOptionActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
     public void Register() {
-        Intent intent = new Intent(SelectOptionActivity.this, PerfilUsuario.class);
+        Intent intent = new Intent(SelectOptionActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
 }

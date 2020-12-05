@@ -11,7 +11,7 @@ public class UsuarioControlador {
     DatabaseReference mDatabase;
 
     public UsuarioControlador() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Clients");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Persona").child("Usuario");
     }
 
     public Task<Void> create(Usuario usuario) {
