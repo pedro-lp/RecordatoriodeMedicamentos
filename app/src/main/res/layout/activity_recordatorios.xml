@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:onClick="onClick"
     android:padding="20dp">
 
     <LinearLayout
@@ -14,17 +15,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/time_selected_is"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/notifications_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            tools:text="12:00"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            tools:text="12:00" />
 
 
         <Button
@@ -35,6 +36,17 @@
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:text="@string/change_time"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/stop_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="Detener"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
