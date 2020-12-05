@@ -78,7 +78,7 @@ public class Recordatorios extends AppCompatActivity {
         findViewById(R.id.stop_notification).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    MainActivity.mp.stop();
+                    //MainActivity.mp.stop();
             }
         });
     }

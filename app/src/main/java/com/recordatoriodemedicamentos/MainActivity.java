@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        btnIngresar = findViewById(R.id.btnSalir);
-        btnSalir = findViewById(R.id.btnIngresar);
+        btnIngresar = findViewById(R.id.btnIngresar);
+        btnSalir = findViewById(R.id.btnSalir);
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
