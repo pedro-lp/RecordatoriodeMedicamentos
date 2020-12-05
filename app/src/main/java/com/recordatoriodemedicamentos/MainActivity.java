@@ -11,7 +11,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
+        //fin de la alarma
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -24,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnEntrar:
                 startActivity(new Intent(MainActivity.this, Registrar.class));
                 break;
+            case R.id.btnRecordatorios:
+                startActivity(new Intent(MainActivity.this, Recordatorios.class));
+                break;
+
         }
     }
 }

@@ -69,7 +69,8 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/lblNombre"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editContrasenia"
@@ -82,7 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/lblNombre"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnSalirR"
@@ -98,7 +100,8 @@
         app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
 
     <Button
         android:id="@+id/btnRegistrar"
@@ -106,14 +109,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="185dp"
         android:layout_marginRight="185dp"
-        android:layout_marginBottom="90dp"
         android:onClick="onClick"
         android:text="@string/registrarme"
         android:textStyle="bold"
         app:backgroundTint="#02B102"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
     <Button
         android:id="@+id/btnInicioSesion"
@@ -138,6 +143,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/lblCorreo"
+        android:autofillHints="" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
