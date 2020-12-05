@@ -2,35 +2,60 @@ package com.recordatoriodemedicamentos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-public static MediaPlayer mp;
+    Button btnIngresar;
+    Button btnSalir;
+
+    SharedPreferences mPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        btnIngresar = findViewById(R.id.btnSalir);
+        btnSalir = findViewById(R.id.btnIngresar);
+
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Ingresar();
+            }
+        });
+
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Salir();
+            }
+        });
     }
-        //fin de la alarma
 
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnSalir:
-                Intent i = new Intent(Intent.ACTION_MAIN);
-                i.addCategory(Intent.CATEGORY_HOME);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                break;
-            case R.id.btnEntrar:
-                startActivity(new Intent(MainActivity.this, Registrar.class));
-                break;
-            case R.id.btnRecordatorios:
-                startActivity(new Intent(MainActivity.this, Recordatorios.class));
-                break;
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            Intent intent = new Intent(MainActivity.this, PerfilUsuario.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
+    }
+
+    private void Ingresar() {
+        Intent intent = new Intent(MainActivity.this,SelectOptionActivity.class);
+        startActivity(intent);
+    }
+
+    private void Salir() {
+        finish();
     }
 }

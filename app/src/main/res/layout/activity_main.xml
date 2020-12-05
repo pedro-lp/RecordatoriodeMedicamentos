@@ -1,90 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@color/ColorPrimary"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnSalir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:onClick="onClick"
-        android:text="@string/salir"
-        android:textStyle="bold"
-        app:backgroundTint="@color/red"
-        app:icon="@android:drawable/ic_menu_close_clear_cancel"
-        app:iconGravity="end"
-        app:iconSize="50px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/btnRecordatorios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:onClick="onClick"
-        android:text="@string/recordatorios"
-        android:textStyle="bold"
-        app:backgroundTint="@color/purple_500"
-        app:icon="@android:drawable/ic_menu_close_clear_cancel"
-        app:iconGravity="end"
-        app:iconSize="50px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/icono"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/txtDescripcion"
-        android:layout_width="357dp"
-        android:layout_height="205dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="120dp"
-        android:text="@string/bienvenido"
-        android:textAllCaps="false"
-        android:textColor="@color/ColorWhite"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/btnSalir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bienvenido"
+            android:textAlignment="center"
+            android:textColor="@color/ColorWhite"
+            android:layout_margin="40dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:onClick="onClick"
-        android:text="@string/aceptar"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:background="@drawable/rounded_button"
-        app:backgroundTint="#3A9806"
-        app:icon="@android:drawable/ic_menu_set_as"
-        app:iconGravity="start|end|textStart"
-        app:layout_constraintBottom_toTopOf="@+id/btnSalir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="#077E07" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:layout_margin="20dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="190dp"
-        android:layout_height="173dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtDescripcion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icono"
-        android:contentDescription="@string/todo" />
+            <Button
+                android:id="@+id/btnSalir"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:text="SALIR"
+                android:backgroundTint="@color/ColorBlueLight"
+                android:textColor="@color/ColorWhite"
+                android:layout_marginRight="5dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btnIngresar"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:layout_height="wrap_content"
+                android:text="INGRESAR"
+                android:backgroundTint="@color/ColorWhite"
+                android:layout_marginLeft="5dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
