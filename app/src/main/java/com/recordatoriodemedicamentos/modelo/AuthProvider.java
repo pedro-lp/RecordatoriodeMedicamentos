@@ -4,11 +4,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AuthControlador {
+public class AuthProvider {
 
     FirebaseAuth mAuth;
 
-    public AuthControlador() {
+    public AuthProvider() {
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -23,4 +23,5 @@ public class AuthControlador {
     public void logout() {
         mAuth.signOut();
     }
+
 }

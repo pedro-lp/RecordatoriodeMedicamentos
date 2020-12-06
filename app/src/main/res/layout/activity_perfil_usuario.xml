@@ -7,6 +7,10 @@
     android:background="@drawable/fondo"
     tools:context=".PerfilUsuario">
 
+    <include layout="@layout/action_bar_toolbar">
+
+    </include>
+
     <TextView
         android:id="@+id/tituloPerfil"
         android:layout_width="wrap_content"

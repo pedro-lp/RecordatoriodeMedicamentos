@@ -7,17 +7,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UsuarioControlador {
+public class UsuarioProvider {
+
     DatabaseReference mDatabase;
 
-    public UsuarioControlador() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Persona").child("Usuario");
+    public UsuarioProvider() {
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Usuario");
     }
 
     public Task<Void> create(Usuario usuario) {
         Map<String, Object> map = new HashMap<>();
-        map.put("nombre", usuario.getNombre());
-        map.put("correo", usuario.getCorreo());
+        map.put("name", usuario.getName());
+        map.put("email", usuario.getEmail());
         return mDatabase.child(usuario.getId()).setValue(map);
     }
+
+
 }

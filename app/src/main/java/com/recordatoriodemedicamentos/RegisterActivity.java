@@ -15,15 +15,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.recordatoriodemedicamentos.modelo.AuthControlador;
+import com.recordatoriodemedicamentos.modelo.AuthProvider;
 import com.recordatoriodemedicamentos.modelo.Usuario;
-import com.recordatoriodemedicamentos.modelo.UsuarioControlador;
+import com.recordatoriodemedicamentos.modelo.UsuarioProvider;
 
 import dmax.dialog.SpotsDialog;
 
 public class RegisterActivity extends AppCompatActivity {
-    AuthControlador authControlador;
-    UsuarioControlador usuarioControlador;
+    AuthProvider mAuthProvider;
+    UsuarioProvider mClientProvider;
 
     TextInputEditText mTextInputName;
     TextInputEditText mTextInputEmail;
@@ -36,10 +36,10 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        MyToolbar.show(this, "Registro de Usuario", true);
+        MyToolbar.show(this,"Registro de usuario",true);
 
-        authControlador = new AuthControlador();
-        usuarioControlador = new UsuarioControlador();
+        mAuthProvider = new AuthProvider();
+        mClientProvider = new UsuarioProvider();
 
         mTextInputName = findViewById(R.id.textInputName);
         mTextInputEmail = findViewById(R.id.textInputEmail);
@@ -56,15 +56,15 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    public void clickRegister() {
-        final String nombre = mTextInputName.getText().toString();
-        final String correo = mTextInputEmail.getText().toString();
+    public void clickRegister(){
+        final String name = mTextInputName.getText().toString();
+        final String email = mTextInputEmail.getText().toString();
         final String password = mTextInputPassword.getText().toString();
 
-        if (!nombre.isEmpty() && !correo.isEmpty() && !password.isEmpty()) {
-            if (password.length() >= 6) {
+        if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty()){
+            if(password.length() >= 6){
                 mDialog.show();
-                register(nombre, correo, password);
+                register(name, email, password);
             } else {
                 Toast.makeText(this, "La contraseña debe tener al menos de 6 caracteres", Toast.LENGTH_SHORT).show();
             }
@@ -73,32 +73,32 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    public void register(final String nombre, final String correo, final String password) {
-        authControlador.register(nombre, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    public void register(final String name, final String email, final String password){
+        mAuthProvider.register(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mDialog.hide();
-                if (task.isSuccessful()) {
+                if(task.isSuccessful()){
                     String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    Usuario usuario = new Usuario(id, nombre, correo);
+                    Usuario usuario = new Usuario(id, name, email);
                     create(usuario);
-                } else {
+                } else{
                     Toast.makeText(RegisterActivity.this, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    public void create(Usuario usuario) {
-        usuarioControlador.create(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+    public void create(Usuario usuario){
+        mClientProvider.create(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
+                if(task.isSuccessful()){
                     Intent intent = new Intent(RegisterActivity.this, PerfilUsuario.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(RegisterActivity.this, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "No se pudo crear el cliente", Toast.LENGTH_SHORT).show();
                 }
             }
         });
