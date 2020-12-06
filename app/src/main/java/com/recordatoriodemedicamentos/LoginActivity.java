@@ -12,23 +12,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.recordatoriodemedicamentos.Modelo.AuthProvider;
-
 import dmax.dialog.SpotsDialog;
 
 public class LoginActivity extends AppCompatActivity {
+    AuthProvider mAuthProvider;
+    AlertDialog mDialog;
+
     TextInputEditText mTextInputEmail;
     TextInputEditText mTextInputPassword;
     Button mButtonLogin;
-
-    FirebaseAuth mAuth;
-    AuthProvider mAuthProvider;
-    DatabaseReference mDatabase;
-
-    AlertDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         MyToolbar.show(this,"Login Usuario",true);
 
-
         mTextInputEmail = findViewById(R.id.textInputEmailL);
         mTextInputPassword = findViewById(R.id.textInputPasswordL);
         mButtonLogin = findViewById(R.id.btnLoginL);
 
-        mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuthProvider = new AuthProvider();
 
         mDialog = new SpotsDialog.Builder().setContext(LoginActivity.this).setMessage("Cargando").build();
 
@@ -74,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                         mDialog.dismiss();
                     }
                 });
+
             } else {
                 Toast.makeText(LoginActivity.this, "La contraseña debe tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
             }

@@ -12,13 +12,13 @@ public class UsuarioProvider {
     DatabaseReference mDatabase;
 
     public UsuarioProvider() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Usuario");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Usuarios");
     }
 
     public Task<Void> create(Usuario usuario) {
         Map<String, Object> map = new HashMap<>();
-        map.put("name", usuario.getName());
-        map.put("email", usuario.getEmail());
+        map.put("nombre", usuario.getName());
+        map.put("correo", usuario.getEmail());
         return mDatabase.child(usuario.getId()).setValue(map);
     }
 

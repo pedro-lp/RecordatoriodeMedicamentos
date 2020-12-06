@@ -15,18 +15,22 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.recordatoriodemedicamentos.Modelo.AuthProvider;
 
 public class PrincipalActivity extends AppCompatActivity {
     Button btnCerrarSesion, btnSalirPerfil;
     TextView usuario;
     FirebaseAuth auth;
     DatabaseReference db;
+    AuthProvider mAuthProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         MyToolbar.show(this, "Usuario", false);
+
+        mAuthProvider = new AuthProvider();
 
         btnCerrarSesion = (Button) findViewById(R.id.btnCerrarSesion);
         btnSalirPerfil = (Button) findViewById(R.id.btnSalirPerfil);
@@ -46,7 +50,7 @@ public class PrincipalActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.action_logout){
-            auth.signOut();
+            mAuthProvider.logout();
             Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -73,7 +77,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
     private void informacion() {
         String id = auth.getCurrentUser().getUid();
-        db.child("usuarios").child(id).addValueEventListener(new ValueEventListener() {
+        db.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
