@@ -1,4 +1,4 @@
-package com.recordatoriodemedicamentos.modelo;
+package com.recordatoriodemedicamentos.Modelo;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;

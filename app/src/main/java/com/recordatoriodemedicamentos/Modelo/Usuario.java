@@ -1,4 +1,4 @@
-package com.recordatoriodemedicamentos.modelo;
+package com.recordatoriodemedicamentos.Modelo;
 
 public class Usuario {
     String id;

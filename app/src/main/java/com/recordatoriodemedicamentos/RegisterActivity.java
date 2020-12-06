@@ -9,15 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.recordatoriodemedicamentos.modelo.AuthProvider;
-import com.recordatoriodemedicamentos.modelo.Usuario;
-import com.recordatoriodemedicamentos.modelo.UsuarioProvider;
+import com.recordatoriodemedicamentos.Modelo.AuthProvider;
+import com.recordatoriodemedicamentos.Modelo.Usuario;
+import com.recordatoriodemedicamentos.Modelo.UsuarioProvider;
 
 import dmax.dialog.SpotsDialog;
 
@@ -36,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        MyToolbar.show(this,"Registro de usuario",true);
+        MyToolbar.show(this,"Registro de Usuario",true);
 
         mAuthProvider = new AuthProvider();
         mClientProvider = new UsuarioProvider();
@@ -46,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         mTextInputPassword = findViewById(R.id.textInputPassword);
         mButtonRegister = findViewById(R.id.btnRegister);
 
-        mDialog = new SpotsDialog.Builder().setContext(RegisterActivity.this).setMessage("Espere un Momento").build();
+        mDialog = new SpotsDialog.Builder().setContext(RegisterActivity.this).setMessage("Cargando").build();
 
         mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,14 +2,12 @@ package com.recordatoriodemedicamentos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -17,6 +15,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.recordatoriodemedicamentos.Modelo.AuthProvider;
 
 import dmax.dialog.SpotsDialog;
 
@@ -26,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     Button mButtonLogin;
 
     FirebaseAuth mAuth;
+    AuthProvider mAuthProvider;
     DatabaseReference mDatabase;
 
     AlertDialog mDialog;
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mDialog = new SpotsDialog.Builder().setContext(LoginActivity.this).setMessage("Espere un Momento").build();
+        mDialog = new SpotsDialog.Builder().setContext(LoginActivity.this).setMessage("Cargando").build();
 
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         if(!email.isEmpty() && !password.isEmpty()){
             if(password.length() >= 6){
                 mDialog.show();
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuthProvider.login(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
@@ -74,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
                         mDialog.dismiss();
                     }
                 });
-
             } else {
                 Toast.makeText(LoginActivity.this, "La contraseña debe tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
             }
