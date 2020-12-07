@@ -57,10 +57,13 @@ public class PrincipalActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.action_logout){
+        if(item.getItemId() == R.id.action_logout) {
             mAuthProvider.logout();
             Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
+        }
+        if(item.getItemId() == R.id.notificacion){
             finish();
         }
         return super.onOptionsItemSelected(item);
