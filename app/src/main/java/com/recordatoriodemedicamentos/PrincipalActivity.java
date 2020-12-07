@@ -16,6 +16,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.recordatoriodemedicamentos.Modelo.AuthProvider;
+import com.recordatoriodemedicamentos.Modelo.Medicamento;
+import com.recordatoriodemedicamentos.Modelo.MedicamentoProvider;
+import com.recordatoriodemedicamentos.Modelo.Usuario;
+import com.recordatoriodemedicamentos.Modelo.UsuarioProvider;
+
+import java.util.UUID;
 
 public class PrincipalActivity extends AppCompatActivity {
     Button btnCerrarSesion, btnSalirPerfil;
@@ -23,6 +29,7 @@ public class PrincipalActivity extends AppCompatActivity {
     FirebaseAuth auth;
     DatabaseReference db;
     AuthProvider mAuthProvider;
+    MedicamentoProvider mMedicamentoProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,7 @@ public class PrincipalActivity extends AppCompatActivity {
         MyToolbar.show(this, "Usuario", false);
 
         mAuthProvider = new AuthProvider();
+        mMedicamentoProvider = new MedicamentoProvider();
 
         btnCerrarSesion = (Button) findViewById(R.id.btnCerrarSesion);
         btnSalirPerfil = (Button) findViewById(R.id.btnSalirPerfil);
@@ -68,10 +76,9 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.btnCerrarSesion:
-                auth.signOut();
-                startActivity(new Intent(PrincipalActivity.this, MainActivity.class));
-                finish();
-                break;
+                String idMedicamento = UUID.randomUUID().toString();
+                Medicamento medicamento = new Medicamento(idMedicamento, "Paracetamol", "500 mg");
+                mMedicamentoProvider.createMedicina(mAuthProvider.getId(),medicamento);
         }
     }
 

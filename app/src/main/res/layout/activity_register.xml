@@ -114,7 +114,7 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="REGISTRARSE"
+                android:text="REGISTRARME"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/ColorPrimary"
                 android:textColor="@color/ColorWhite"

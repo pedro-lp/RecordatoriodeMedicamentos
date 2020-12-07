@@ -24,4 +24,8 @@ public class AuthProvider {
         mAuth.signOut();
     }
 
+    public String getId() {
+        return mAuth.getCurrentUser().getUid();
+    }
+
 }
