@@ -31,4 +31,5 @@
     <string name="registrarme_ahora">REGISTRARME AHORA</string>
     <string name="ya_tengo_cuenta">YA TENGO CUENTA</string>
     <string name="selecciona_una_opci_n">Selecciona una opción</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
 </resources>

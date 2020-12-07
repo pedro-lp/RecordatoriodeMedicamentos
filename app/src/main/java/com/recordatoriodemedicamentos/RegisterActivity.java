@@ -61,7 +61,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty()){
             if(password.length() >= 6){
-                mDialog.show();
                 register(name, email, password);
             } else {
                 Toast.makeText(this, "La contraseña debe tener al menos de 6 caracteres", Toast.LENGTH_SHORT).show();
@@ -72,10 +71,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void register(final String name, final String email, final String password){
+        mDialog.show();
         mAuthProvider.register(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                mDialog.hide();
                 if(task.isSuccessful()){
                     String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     Usuario usuario = new Usuario(id, name, email);
@@ -83,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else{
                     Toast.makeText(RegisterActivity.this, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show();
                 }
+                mDialog.dismiss();
             }
         });
     }
@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(RegisterActivity.this, "No se pudo crear el cliente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show();
                 }
             }
         });
