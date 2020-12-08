@@ -42,7 +42,7 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
     @Override
     public void onBindViewHolder(medicamentoView medicamentoView, int i) {
         Medicamento medicamento = medicamentoList.get(i);
-        medicamentoView.nombre.setText(medicamento.getId());
+        medicamentoView.nombre.setText(medicamento.getNombre());
         medicamentoView.unidad.setText(medicamento.getUnidad());
         medicamentoView.duracion.setText(medicamento.getDuracion());
         medicamentoView.recordar.setText(medicamento.getRecordar());

@@ -36,7 +36,6 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
     RecyclerView idrecyclerView;
     private MedicamentoAdapter medicamentoAdapter;
 
-    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,6 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         setContentView(R.layout.activity_principal);
         MyToolbar.show(this, "Usuario", false);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         authProvider = new AuthProvider();
         mediProvider = new MedicamentoProvider();
 
@@ -53,36 +51,9 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         medicamentoAdapter = new MedicamentoAdapter(this, medicamentoArrayList);
         idrecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         idrecyclerView.setAdapter(medicamentoAdapter);
-        Mostrar();
+
+        mediProvider.showMedicamento(authProvider.getId(),medicamentoAdapter);
     }
-
-    private void Mostrar(){
-        mDatabase.child("Medicamento").child(authProvider.getId()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    Medicamento medicamento = null;
-                    for(DataSnapshot ds: snapshot.getChildren()){
-                        medicamento = new Medicamento();
-                        medicamento.setId(ds.getKey());
-                        medicamento.setNombre(ds.child("Nombre").getValue().toString());
-                        medicamento.setUnidad(ds.child("Unidad").getValue().toString());
-                        medicamento.setDuracion(ds.child("Duración").getValue().toString());
-                        medicamento.setRecordar(ds.child("Recordar Cada").getValue().toString());
-                        medicamento.setPriToma(ds.child("Primera Toma").getValue().toString());
-                        medicamentoAdapter.agregarMedicamento(medicamento);
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

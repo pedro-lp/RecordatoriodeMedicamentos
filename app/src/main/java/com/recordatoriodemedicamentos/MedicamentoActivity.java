@@ -53,7 +53,7 @@ public class MedicamentoActivity extends AppCompatActivity {
         if(!Nombre.isEmpty() && !Unidad.isEmpty() && !Duracion.isEmpty() && !Recordar.isEmpty() && !PriToma.isEmpty()){
             String idMedicamento = UUID.randomUUID().toString();
             Medicamento medicamento = new Medicamento(idMedicamento,Nombre,Unidad,Duracion,Recordar,PriToma);
-            mediProvider.createMedicina(authProvider.getId(),medicamento);
+            mediProvider.createMedicamento(authProvider.getId(),medicamento);
             Intent intent = new Intent(MedicamentoActivity.this, PrincipalActivity.class);
             startActivity(intent);
         } else {
