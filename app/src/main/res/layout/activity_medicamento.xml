@@ -61,7 +61,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editID"
+                    android:id="@+id/edtNomMedicamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombre del medicamento"
@@ -82,7 +82,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editNomContacto"
+                    android:id="@+id/edtUnidad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Unidad"
@@ -103,7 +103,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editEdad"
+                    android:id="@+id/edtDuracion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Duración"
@@ -124,7 +124,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout1">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editDireccion"
+                    android:id="@+id/edtRecordar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Recordar Cada"
@@ -147,7 +147,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTelefono"
+                    android:id="@+id/edtPriToma"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Primera Toma"

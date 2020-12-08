@@ -17,8 +17,11 @@ public class MedicamentoProvider {
 
     public Task<Void> createMedicina(String idUsuario,Medicamento medicamento) {
         Map<String, Object> map = new HashMap<>();
-        map.put("nombre",medicamento.getNombre() );
-        map.put("dosis", medicamento.getDosis());
+        map.put("Nombre",medicamento.getNombre());
+        map.put("Unidad", medicamento.getUnidad());
+        map.put("Duración", medicamento.getDuracion());
+        map.put("Recordar Cada", medicamento.getRecordar());
+        map.put("Primera Toma", medicamento.getPriToma());
         return mDatabase.child(idUsuario).child(medicamento.getId()).setValue(map);
     }
 

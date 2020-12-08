@@ -52,10 +52,10 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent miIntent = null;
         switch (view.getId()){
             case R.id.btnAgrMed:
-                miIntent = new Intent(this,MainActivity.class);
+                Intent intent = new Intent(PrincipalActivity.this, MedicamentoActivity.class);
+                startActivity(intent);
                 break;
         }
-        startActivity(miIntent);
     }
 
 
