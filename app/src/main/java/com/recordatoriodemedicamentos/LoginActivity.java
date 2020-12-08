@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText mTextInputEmail;
     TextInputEditText mTextInputPassword;
     Button mButtonLogin;
+    TextView restablecer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         mTextInputEmail = findViewById(R.id.textInputEmailL);
         mTextInputPassword = findViewById(R.id.textInputPasswordL);
         mButtonLogin = findViewById(R.id.btnLoginL);
+        restablecer = findViewById(R.id.restablecerContra);
 
         mAuthProvider = new AuthProvider();
 
@@ -41,6 +44,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login();
+            }
+        });
+        restablecer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RecuperarContrasenia.class));
             }
         });
     }
@@ -60,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(LoginActivity.this, "La contraseña o el password son incorrectos", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "El correo o la contraseña son incorrectos", Toast.LENGTH_SHORT).show();
                         }
                         mDialog.dismiss();
                     }
@@ -70,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "La contraseña debe tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(LoginActivity.this, "El Correo electronico y la contraseña son obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "El correo electronico y la contraseña son obligatorios", Toast.LENGTH_SHORT).show();
         }
 
     }

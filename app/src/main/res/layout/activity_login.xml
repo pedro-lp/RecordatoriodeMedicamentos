@@ -87,7 +87,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="bottom">
-
+            <TextView
+                android:id="@+id/restablecerContra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Olvide mi contraseña"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_blue_dark"
+                android:gravity="center_horizontal">
+            </TextView>
             <Button
                 android:id="@+id/btnLoginL"
                 android:layout_width="match_parent"
