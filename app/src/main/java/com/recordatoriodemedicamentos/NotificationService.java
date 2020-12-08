@@ -18,7 +18,7 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 
 public class NotificationService extends IntentService {
-
+    public static MediaPlayer mp;
     private NotificationManager notificationManager;
     private PendingIntent pendingIntent;
     private static int NOTIFICATION_ID = 1;
@@ -46,8 +46,8 @@ public class NotificationService extends IntentService {
         String message = getString(R.string.new_notification);
 
 
-        //MainActivity.mp = MediaPlayer.create(this, R.raw.sound_long);
-        //MainActivity.mp.start();
+        mp = MediaPlayer.create(this, R.raw.sound_long);
+        mp.start();
 
         
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
