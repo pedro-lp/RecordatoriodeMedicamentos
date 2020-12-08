@@ -42,7 +42,7 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
     @Override
     public void onBindViewHolder(medicamentoView medicamentoView, int i) {
         Medicamento medicamento = medicamentoList.get(i);
-        medicamentoView.nombre.setText(medicamento.getNombre());
+        medicamentoView.nombre.setText(medicamento.getId());
         medicamentoView.unidad.setText(medicamento.getUnidad());
         medicamentoView.duracion.setText(medicamento.getDuracion());
         medicamentoView.recordar.setText(medicamento.getRecordar());
@@ -130,13 +130,13 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
 
         public medicamentoView(@NonNull View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.txtNombre);
-            unidad = itemView.findViewById(R.id.txtUnidad);
-            duracion = itemView.findViewById(R.id.txtDuracion);
-            recordar = itemView.findViewById(R.id.txtRecordar);
-            priToma = itemView.findViewById(R.id.txtPriRToma);
-            btnEditarMed = itemView.findViewById(R.id.btnEditarMedicamento);
-            btnEliminarMed = itemView.findViewById(R.id.btnEliminarMedicamento);
+            nombre = itemView.findViewById(R.id.txtNombreMed);
+            unidad = itemView.findViewById(R.id.txtUnidadMed);
+            duracion = itemView.findViewById(R.id.txtDuracionMed);
+            recordar = itemView.findViewById(R.id.txtPriToma);
+            priToma = itemView.findViewById(R.id.txtRecordarMed);
+            btnEditarMed = itemView.findViewById(R.id.btnEditarContacto);
+            btnEliminarMed = itemView.findViewById(R.id.btnEliminarContacto);
         }
     }
 }
