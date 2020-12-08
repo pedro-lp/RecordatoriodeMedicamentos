@@ -2,29 +2,30 @@ package com.recordatoriodemedicamentos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.recordatoriodemedicamentos.Modelo.AuthProvider;
-import com.recordatoriodemedicamentos.Modelo.IMedicamento;
 import com.recordatoriodemedicamentos.Modelo.Medicamento;
-import com.recordatoriodemedicamentos.Modelo.MedicamentoAdapter;
 import com.recordatoriodemedicamentos.Modelo.MedicamentoProvider;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PrincipalActivity extends AppCompatActivity implements IMedicamento {
+public class PrincipalActivity extends AppCompatActivity {
     AuthProvider authProvider;
     MedicamentoProvider mediProvider;
-    ArrayList<Medicamento> medicamentoArrayList;
-    RecyclerView idrecyclerView;
-    private MedicamentoAdapter medicamentoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +35,8 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
 
         authProvider = new AuthProvider();
         mediProvider = new MedicamentoProvider();
-
-        idrecyclerView = (RecyclerView) findViewById(R.id.rcvlistaMedicamentos);
-        medicamentoArrayList = new ArrayList<>();
-        medicamentoAdapter = new MedicamentoAdapter(this,medicamentoArrayList);
-
-        RecyclerView recyclerView = findViewById(R.id.rcvlistaMedicamentos);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-        recyclerView.setAdapter(medicamentoAdapter);
-        mediProvider.showMedicamentos(authProvider.getId(),medicamentoAdapter);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,7 +55,6 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         if (item.getItemId() == R.id.notificacion) {
             Intent intent = new Intent(PrincipalActivity.this, Recordatorios.class);
             startActivity(intent);
-            //finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -75,16 +67,5 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
                 startActivity(intent);
                 break;
         }
-    }
-
-
-    @Override
-    public void OpcionEditar(Medicamento medicamento) {
-
-    }
-
-    @Override
-    public void OpcionEliminar(Medicamento medicamento) {
-
     }
 }

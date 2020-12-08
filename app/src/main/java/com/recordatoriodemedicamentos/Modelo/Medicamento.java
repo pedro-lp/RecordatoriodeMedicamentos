@@ -1,5 +1,6 @@
 package com.recordatoriodemedicamentos.Modelo;
 
+
 import java.io.Serializable;
 
 public class Medicamento implements Serializable {
