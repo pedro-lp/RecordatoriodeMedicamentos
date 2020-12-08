@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RecuperarContrasenia extends AppCompatActivity {
@@ -24,8 +25,8 @@ public class RecuperarContrasenia extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar_contrasenia);
-        correo = (EditText) findViewById(R.id.txtCorreo);
-        btnRecuperar = (Button) findViewById(R.id.btnRecuperarContra);
+        correo = findViewById(R.id.editCorreo);
+        btnRecuperar = (Button) findViewById(R.id.btnRestablecer);
         pd = new ProgressDialog(RecuperarContrasenia.this);
         auth = FirebaseAuth.getInstance();
 
