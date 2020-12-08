@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.recordatoriodemedicamentos.Modelo.AuthProvider;
 import com.recordatoriodemedicamentos.Modelo.Usuario;
 import com.recordatoriodemedicamentos.Modelo.UsuarioProvider;
-
 import dmax.dialog.SpotsDialog;
 
 public class RegisterActivity extends AppCompatActivity {
