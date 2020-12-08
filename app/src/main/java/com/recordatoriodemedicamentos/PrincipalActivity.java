@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.recordatoriodemedicamentos.Modelo.AuthProvider;
 import com.recordatoriodemedicamentos.Modelo.MedicamentoProvider;
@@ -28,7 +29,6 @@ public class PrincipalActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_usuario, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -45,4 +45,16 @@ public class PrincipalActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onClick(View view){
+        Intent miIntent = null;
+        switch (view.getId()){
+            case R.id.btnAgrMed:
+                miIntent = new Intent(this,MainActivity.class);
+                break;
+        }
+        startActivity(miIntent);
+    }
+
+
 }

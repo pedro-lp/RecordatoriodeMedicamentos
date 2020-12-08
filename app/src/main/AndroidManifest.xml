@@ -19,12 +19,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecordatorioDeMedicamentos">
-        <activity android:name=".LoginActivity"
-            android:parentActivityName=".SelectOptionActivity"/>
-        <activity android:name=".RegisterActivity"
-            android:parentActivityName=".SelectOptionActivity"/>
-        <activity android:name=".SelectOptionActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".MedicamentoActivity"></activity>
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".SelectOptionActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:parentActivityName=".SelectOptionActivity" />
+        <activity
+            android:name=".SelectOptionActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".Recordatorios" />
         <activity android:name=".PrincipalActivity" />
         <activity android:name=".MainActivity">
