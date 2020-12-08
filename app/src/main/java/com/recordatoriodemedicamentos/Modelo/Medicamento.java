@@ -1,12 +1,17 @@
 package com.recordatoriodemedicamentos.Modelo;
 
-public class Medicamento {
+import java.io.Serializable;
+
+public class Medicamento implements Serializable {
     String id;
     String nombre;
     String unidad;
     String duracion;
     String recordar;
     String priToma;
+
+    public Medicamento() {
+    }
 
     public Medicamento(String id, String nombre, String unidad, String duracion, String recordar, String priToma) {
         this.id = id;
