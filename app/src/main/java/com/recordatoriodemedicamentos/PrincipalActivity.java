@@ -1,11 +1,15 @@
 package com.recordatoriodemedicamentos;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.telephony.mbms.MbmsErrors;
 import android.view.Menu;
@@ -13,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -36,6 +41,8 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
     RecyclerView idrecyclerView;
     private MedicamentoAdapter medicamentoAdapter;
 
+    SharedPreferences preMed;
+    SharedPreferences.Editor edtMed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +53,16 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         authProvider = new AuthProvider();
         mediProvider = new MedicamentoProvider();
 
+        preMed = getApplicationContext().getSharedPreferences("typeBoton",MODE_PRIVATE);
+        edtMed = preMed.edit();
+
         idrecyclerView = (RecyclerView) findViewById(R.id.rcvlistaMedicamentos);
         medicamentoArrayList = new ArrayList<>();
         medicamentoAdapter = new MedicamentoAdapter(this, medicamentoArrayList);
         idrecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         idrecyclerView.setAdapter(medicamentoAdapter);
 
-        mediProvider.showMedicamento(authProvider.getId(),medicamentoAdapter);
+        mediProvider.showMedicamento(authProvider.getId(),medicamentoAdapter,medicamentoArrayList);
     }
 
     @Override
@@ -80,6 +90,8 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         Intent miIntent = null;
         switch (view.getId()){
             case R.id.btnAgrMed:
+                edtMed.putString("boton","agregar");
+                edtMed.apply();
                 Intent intent = new Intent(PrincipalActivity.this, MedicamentoActivity.class);
                 startActivity(intent);
                 break;
@@ -88,11 +100,34 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
 
     @Override
     public void OpcionEditar(Medicamento medicamento) {
+        edtMed.putString("boton","modificar");
+        edtMed.apply();
+        Intent intent = new Intent(PrincipalActivity.this, MedicamentoActivity.class);
+        intent.putExtra("medicamento",medicamento);
+        startActivity(intent);
 
     }
 
     @Override
     public void OpcionEliminar(Medicamento medicamento) {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+        alerta.setTitle("Mensaje de Advertencia");
+        alerta.setMessage("¿Esta seguro que desea Eliminar este Contacto?");
+        alerta.setCancelable(false);
+        alerta.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mediProvider.removeMedicamento(authProvider.getId(),medicamento,medicamentoAdapter);
+                Toast.makeText(PrincipalActivity.this, "Se Elimino Correctamente el Medicamento", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alerta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
 
+            }
+        });
+        alerta.show();
     }
+
 }
