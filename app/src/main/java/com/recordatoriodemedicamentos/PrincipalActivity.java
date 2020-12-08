@@ -65,11 +65,11 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
                     for(DataSnapshot ds: snapshot.getChildren()){
                         medicamento = new Medicamento();
                         medicamento.setId(ds.getKey());
-                        medicamento.setNombre();
-                        medicamento.setUnidad();
-                        medicamento.setDuracion();
-                        medicamento.setRecordar();
-                        medicamento.setPriToma();
+                        medicamento.setNombre(ds.child("Nombre").getValue().toString());
+                        medicamento.setUnidad(ds.child("Unidad").getValue().toString());
+                        medicamento.setDuracion(ds.child("Duración").getValue().toString());
+                        medicamento.setRecordar(ds.child("Recordar Cada").getValue().toString());
+                        medicamento.setPriToma(ds.child("Primera Toma").getValue().toString());
                         medicamentoAdapter.agregarMedicamento(medicamento);
                     }
                 }
