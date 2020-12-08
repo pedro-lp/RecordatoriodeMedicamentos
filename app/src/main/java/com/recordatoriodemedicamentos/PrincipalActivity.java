@@ -64,7 +64,9 @@ public class PrincipalActivity extends AppCompatActivity {
             finish();
         }
         if(item.getItemId() == R.id.notificacion){
-            finish();
+            Intent intent = new Intent(PrincipalActivity.this, Recordatorios.class);
+            startActivity(intent);
+            //finish();
         }
         return super.onOptionsItemSelected(item);
     }
