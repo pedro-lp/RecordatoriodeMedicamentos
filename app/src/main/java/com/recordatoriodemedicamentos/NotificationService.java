@@ -45,10 +45,8 @@ public class NotificationService extends IntentService {
 
         String message = getString(R.string.new_notification);
 
-
         mp = MediaPlayer.create(this, R.raw.sound_long);
         mp.start();
-
         
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             final int NOTIFY_ID = 0; // ID of notification
