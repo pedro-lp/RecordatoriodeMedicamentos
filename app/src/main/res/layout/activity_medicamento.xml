@@ -45,7 +45,7 @@
                     android:id="@+id/edtNomMedicamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre del medicamento"
+                    android:hint="@string/edtNombre"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +66,7 @@
                     android:id="@+id/edtUnidad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Unidad"
+                    android:hint="@string/edtUnidad"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +87,7 @@
                     android:id="@+id/edtDuracion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Duración"
+                    android:hint="@string/edtDuracion"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,7 +108,7 @@
                     android:id="@+id/edtRecordar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Recordar Cada"
+                    android:hint="@string/edtRecordar"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +131,7 @@
                     android:id="@+id/edtPriToma"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Primera Toma"
+                    android:hint="@string/edtPriToma"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
