@@ -52,7 +52,6 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
     ArrayList<Medicamento> medicamentoArrayList;
     RecyclerView idrecyclerView;
     private MedicamentoAdapter medicamentoAdapter;
-    private Button btnCerrarSesion;
 
     SharedPreferences preMed;
     SharedPreferences.Editor edtMed;
@@ -76,7 +75,6 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         idrecyclerView.setAdapter(medicamentoAdapter);
 
         mediProvider.showMedicamento(authProvider.getId(),medicamentoAdapter,medicamentoArrayList);
-        btnCerrarSesion = (Button) findViewById(R.id.btnCerrarSesion);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -91,26 +89,6 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
                 .build();
         mGoogle = GoogleSignIn.getClient(this, gso);
 
-        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Cerrar sesion en firebase
-                mAuth.signOut();
-                //Cerrar sesion con google
-                mGoogle.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                            startActivity(i);
-                            PrincipalActivity.this.finish();
-                        }else{
-                            Toast.makeText(PrincipalActivity.this, "Error al cerrar la sesion", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });
     }
 
     @Override
@@ -122,10 +100,25 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
-            authProvider.logout();
-            Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            //authProvider.logout();
+            //Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
+            //startActivity(intent);
+           // finish();
+            //Cerrar sesion en firebase
+            mAuth.signOut();
+            //Cerrar sesion con google
+            mGoogle.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(i);
+                        PrincipalActivity.this.finish();
+                    }else{
+                        Toast.makeText(PrincipalActivity.this, "Error al cerrar la sesion", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
         if (item.getItemId() == R.id.notificacion) {
             Intent intent = new Intent(PrincipalActivity.this, Recordatorios.class);
