@@ -60,7 +60,7 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        //MyToolbar.show(this, "Usuario", false);
+        getSupportActionBar().setTitle("Iniciar Sesión");
 
         authProvider = new AuthProvider();
         mediProvider = new MedicamentoProvider();
