@@ -52,9 +52,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setTitle("Iniciar Sesión");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         mDialog = new SpotsDialog.Builder().setContext(LoginActivity.this).setMessage("Cargando").build();
         mClientProvider = new UsuarioProvider();
