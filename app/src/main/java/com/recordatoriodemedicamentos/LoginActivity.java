@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }else{
                 Log.d(TAG, "Error, login no exitoso:"+task.getException().toString());
-                Toast.makeText(this, ""+task.getException().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No se seleccionó ninguna cuenta...", Toast.LENGTH_SHORT).show();
             }
         }
     }
