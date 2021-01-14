@@ -28,7 +28,8 @@
             android:textColor="@color/ColorWhite"
             android:layout_margin="40dp"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"

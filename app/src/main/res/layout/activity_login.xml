@@ -22,65 +22,7 @@
             android:src="@drawable/icono"
             android:layout_marginTop="100dp"
             android:layout_marginBottom="20dp"
-            android:layout_gravity="center" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/icon_email" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEmailL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Correo electronico"
-                    android:inputType="textEmailAddress">
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/icon_password" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputPasswordL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contraseña"
-                    android:inputType="textPassword">
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,24 +30,22 @@
             android:orientation="vertical"
             android:gravity="bottom">
             <TextView
-                android:id="@+id/restablecerContra"
-                android:layout_width="match_parent"
+                android:text="Inicia sesión con una cuenta Google"
+                android:textColor="@color/ColorBlueLight"
+                android:textSize="16dp"
+                android:fontFamily="monospace"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Olvide mi contraseña"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_blue_dark"
-                android:gravity="center_horizontal">
-            </TextView>
-            <Button
-                android:id="@+id/btnLoginL"
-                android:layout_width="match_parent"
+                android:layout_marginBottom="100dp"
+                android:layout_gravity="center"
+                />
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/btnGoogle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Iniciar Sesión"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/ColorPrimary"
-                android:textColor="@color/ColorWhite"
-                android:layout_margin="30dp"/>
+                android:layout_marginBottom="10sp"
+                android:layout_gravity="center">
+            </com.google.android.gms.common.SignInButton>
 
         </LinearLayout>
 
