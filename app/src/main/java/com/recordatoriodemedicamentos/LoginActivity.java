@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        MyToolbar.show(this,"Login con Google",true);
 
         mDialog = new SpotsDialog.Builder().setContext(LoginActivity.this).setMessage("Cargando").build();
         mClientProvider = new UsuarioProvider();
