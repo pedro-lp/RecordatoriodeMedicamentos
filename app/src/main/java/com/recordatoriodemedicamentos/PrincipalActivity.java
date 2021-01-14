@@ -16,10 +16,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.signin.SignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,11 +44,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrincipalActivity extends AppCompatActivity implements IMedicamento {
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogle;
+    private GoogleSignInOptions gso;
     AuthProvider authProvider;
     MedicamentoProvider mediProvider;
     ArrayList<Medicamento> medicamentoArrayList;
     RecyclerView idrecyclerView;
     private MedicamentoAdapter medicamentoAdapter;
+    private Button btnCerrarSesion;
 
     SharedPreferences preMed;
     SharedPreferences.Editor edtMed;
@@ -63,6 +76,41 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         idrecyclerView.setAdapter(medicamentoAdapter);
 
         mediProvider.showMedicamento(authProvider.getId(),medicamentoAdapter,medicamentoArrayList);
+        btnCerrarSesion = (Button) findViewById(R.id.btnCerrarSesion);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        //Datos del usuario
+        String nombre = currentUser.getDisplayName();
+        String correo = currentUser.getEmail();
+        String id = currentUser.getUid();
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogle = GoogleSignIn.getClient(this, gso);
+
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Cerrar sesion en firebase
+                mAuth.signOut();
+                //Cerrar sesion con google
+                mGoogle.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(i);
+                            PrincipalActivity.this.finish();
+                        }else{
+                            Toast.makeText(PrincipalActivity.this, "Error al cerrar la sesion", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
     }
 
     @Override

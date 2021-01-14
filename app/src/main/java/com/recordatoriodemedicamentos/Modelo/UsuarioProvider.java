@@ -21,6 +21,4 @@ public class UsuarioProvider {
         map.put("correo", usuario.getEmail());
         return mDatabase.child(usuario.getId()).setValue(map);
     }
-
-
 }

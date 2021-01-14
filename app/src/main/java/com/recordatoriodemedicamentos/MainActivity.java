@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void Ingresar() {
-        Intent intent = new Intent(MainActivity.this,SelectOptionActivity.class);
+        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
         startActivity(intent);
     }
 
