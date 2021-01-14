@@ -48,10 +48,10 @@ public class MedicamentoActivity extends AppCompatActivity {
 
         String typeUser = preMed.getString("boton", "");
         if(typeUser.equals("agregar")) {
-            MyToolbar.show(this, "Añadir medicamento", true);
+            //MyToolbar.show(this, "Añadir medicamento", true);
             btnAgregar.setVisibility(View.VISIBLE);
         }else if (typeUser.equals("modificar")){
-            MyToolbar.show(this, "Modificando medicamento", true);
+            //
             btnModificar.setVisibility(View.VISIBLE);
             medicamento = (Medicamento) getIntent().getSerializableExtra("medicamento");
             obtenerDatos();

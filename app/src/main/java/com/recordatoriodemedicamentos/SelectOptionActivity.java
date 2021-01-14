@@ -14,7 +14,7 @@ public class SelectOptionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_option);
-        MyToolbar.show(this, "Seleccionar Opción", true);
+        //MyToolbar.show(this, "Seleccionar Opción", true);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
