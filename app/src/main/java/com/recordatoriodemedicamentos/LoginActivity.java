@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     AlertDialog mDialog;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogle;
-    private SignInButton btnGoogle;
+    private Button btnGoogle;
     private UsuarioProvider mClientProvider;
     private AuthProvider mAuthProvider;
     private String id, name, email;
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         mClientProvider = new UsuarioProvider();
         mAuthProvider = new AuthProvider();
 
-        btnGoogle = (SignInButton) findViewById(R.id.btnGoogle);
+        btnGoogle = (Button) findViewById(R.id.btnGoogle);
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

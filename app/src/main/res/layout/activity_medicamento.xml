@@ -31,6 +31,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
+                android:textColorHint="@color/teal_200"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -42,6 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombre del medicamento"
+                    android:background="@color/ColorWhite"
+                    android:textStyle="bold"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,6 +56,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="40dp"
                 app:errorEnabled="true"
+                android:textColorHint="@color/teal_200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +67,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Unidad"
+                    android:background="@color/ColorWhite"
+                    android:textStyle="bold"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,6 +80,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="40dp"
                 app:errorEnabled="true"
+                android:textColorHint="@color/teal_200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +91,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Duración"
+                    android:background="@color/ColorWhite"
+                    android:textStyle="bold"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,6 +104,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="40dp"
                 app:errorEnabled="true"
+                android:textColorHint="@color/teal_200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -105,6 +115,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Recordar Cada"
+                    android:background="@color/ColorWhite"
+                    android:textStyle="bold"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +127,8 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="100dp"
+                android:textColorHint="@color/teal_200"
                 app:errorEnabled="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,9 +140,20 @@
                     android:id="@+id/edtPriToma"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/ColorWhite"
                     android:hint="Primera Toma"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="558dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -148,8 +172,8 @@
         android:onClick="onClick"
         android:text="Agregar Medicamento"
         android:textStyle="bold"
-        android:background="@drawable/rounded_button"
         android:backgroundTint="#E900C853"
+        app:cornerRadius="30dp"
         android:visibility="gone"
         android:textColor="@color/ColorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -170,8 +194,8 @@
         android:text="Modificar Medicamento"
         android:textStyle="bold"
         android:visibility="gone"
-        android:background="@drawable/rounded_button"
         android:backgroundTint="@color/ColorBlueLight"
+        app:cornerRadius="30dp"
         android:textColor="@color/ColorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

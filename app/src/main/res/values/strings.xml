@@ -28,13 +28,22 @@
     <string name="new_notification">Es hora de tu medicamento :)</string>
     <string name="recordatorios">recordatorios</string>
     <string name="todo">TODO</string>
-    <string name="registrarme_ahora">REGISTRARME AHORA</string>
-    <string name="ya_tengo_cuenta">YA TENGO CUENTA</string>
-    <string name="selecciona_una_opci_n">Selecciona una opción</string>
+    <string name="registrarme_ahora">Paciente</string>
+    <string name="ya_tengo_cuenta">Tutor</string>
+    <string name="selecciona_una_opci_n">Selecciona el tipo de usuario:</string>
     <string name="cerrar_sesi_n">Cerrar sesión</string>
     <string name="edtNombre">Nombre:</string>
     <string name="edtUnidad">Unidad:</string>
     <string name="edtDuracion">Duración:</string>
     <string name="edtRecordar">Recordar Cada:</string>
     <string name="edtPriToma">Primera Toma:</string>
+    <string-array name="items_unidad">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
 </resources>

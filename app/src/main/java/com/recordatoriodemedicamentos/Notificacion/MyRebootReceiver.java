@@ -1,4 +1,4 @@
-package com.recordatoriodemedicamentos;
+package com.recordatoriodemedicamentos.Notificacion;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

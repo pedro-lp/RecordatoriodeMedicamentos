@@ -12,7 +12,7 @@ public class UsuarioProvider {
     DatabaseReference mDatabase;
 
     public UsuarioProvider() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Usuarios");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Usuarios").child("Tutores");
     }
 
     public Task<Void> create(Usuario usuario) {

@@ -28,6 +28,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/teal_200"
                 android:layout_marginLeft="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -35,6 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombre completo"
+                    android:background="@color/ColorWhite"
+                    android:textStyle="bold"
                     android:inputType="text">
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -57,6 +60,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/teal_200"
                 android:layout_marginLeft="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -64,6 +68,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Correo electronico"
+                    android:background="@color/ColorWhite"
+                    android:textStyle="bold"
                     android:inputType="textEmailAddress">
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -86,6 +92,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/teal_200"
                 android:layout_marginLeft="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -93,6 +100,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Contraseña"
+                    android:background="@color/ColorWhite"
+                    android:textStyle="bold"
                     android:inputType="textPassword">
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -107,12 +116,12 @@
             android:gravity="bottom">
 
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnEntrarR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="REGISTRARME"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/ColorPrimary"
+                app:cornerRadius="30dp"
+                android:backgroundTint="@color/purple_500"
                 android:textColor="@color/ColorWhite"
                 android:layout_margin="30dp"/>
 

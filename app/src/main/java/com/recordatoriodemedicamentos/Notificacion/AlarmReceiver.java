@@ -1,4 +1,4 @@
-package com.recordatoriodemedicamentos;
+package com.recordatoriodemedicamentos.Notificacion;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
+
+import com.recordatoriodemedicamentos.Notificacion.NotificationService;
 
 public class AlarmReceiver extends BroadcastReceiver {
 

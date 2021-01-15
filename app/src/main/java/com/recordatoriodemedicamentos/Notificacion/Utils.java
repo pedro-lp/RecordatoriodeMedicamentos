@@ -1,10 +1,12 @@
-package com.recordatoriodemedicamentos;
+package com.recordatoriodemedicamentos.Notificacion;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+
+import com.recordatoriodemedicamentos.Notificacion.AlarmReceiver;
 
 import static android.content.Context.ALARM_SERVICE;
 
