@@ -46,7 +46,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_iniciar_sesion);
         //MyToolbar.show(this,"Login usuario",true);
 
-        mPref = getApplicationContext().getSharedPreferences("tipoUsuario",MODE_PRIVATE);
+        mPref = getApplicationContext().getSharedPreferences("tipoUsuario", MODE_PRIVATE);
 
         mTextInputEmail = findViewById(R.id.textInputEmail);
         mTextInputPassword = findViewById(R.id.textInputPassword);
@@ -73,19 +73,19 @@ public class IniciarSesionActivity extends AppCompatActivity {
         });
     }
 
-    private void login(){
+    private void login() {
         String email = mTextInputEmail.getText().toString();
         String password = mTextInputPassword.getText().toString();
 
-        if(!email.isEmpty() && !password.isEmpty()){
-            if(password.length() >= 6){
+        if (!email.isEmpty() && !password.isEmpty()) {
+            if (password.length() >= 6) {
                 mDialog.show();
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             String typeUser = mPref.getString("usuario", "");
-                            if(typeUser.equals("tutor")){
+                            if (typeUser.equals("tutor")) {
                                 mDatabase.child("Usuarios").child("Tutores").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -93,8 +93,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                             Intent intent = new Intent(IniciarSesionActivity.this, PrincipalActivity.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);
-                                        }
-                                        else {
+                                        } else {
                                             Toast.makeText(IniciarSesionActivity.this, "No es un usuario permitido", Toast.LENGTH_SHORT).show();
                                             mAuth.signOut();
                                         }
@@ -105,7 +104,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
 
                                     }
                                 });
-                            } else if(typeUser.equals("paciente")){
+                            } else if (typeUser.equals("paciente")) {
                                 mDatabase.child("Usuarios").child("Pacientes").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -113,8 +112,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                             Intent intent = new Intent(IniciarSesionActivity.this, PrincipalActivity.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);
-                                        }
-                                        else {
+                                        } else {
                                             Toast.makeText(IniciarSesionActivity.this, "No es un usuario permitido", Toast.LENGTH_SHORT).show();
                                             mAuth.signOut();
                                         }

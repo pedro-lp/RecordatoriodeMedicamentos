@@ -29,7 +29,7 @@ public class DoctoresFragment extends Fragment implements OnMapReadyCallback {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        vista = inflater.inflate(R.layout.fragment_doctores, container,false);
+        vista = inflater.inflate(R.layout.fragment_doctores, container, false);
 
         mapView = (MapView) vista.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
@@ -47,10 +47,10 @@ public class DoctoresFragment extends Fragment implements OnMapReadyCallback {
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         LatLng centro = new LatLng(17.545981, -99.506910);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centro,13),5000,null);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centro, 13), 5000, null);
 
 
-        LatLng punto = new LatLng(17.5514605,-99.5082644);
+        LatLng punto = new LatLng(17.5514605, -99.5082644);
         mMarker = mMap.addMarker(new MarkerOptions().position(punto).title("Doctor Calixto").icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_marker)));
 
         LatLng punto1 = new LatLng(17.527076, -99.496730);

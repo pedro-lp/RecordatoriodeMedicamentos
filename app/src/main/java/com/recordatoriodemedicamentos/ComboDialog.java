@@ -14,8 +14,9 @@ public class ComboDialog extends DialogFragment {
 
     int position = 0;
 
-    public interface ComboListener{
-        void onPositiveButtonClicked(String[] list,int position);
+    public interface ComboListener {
+        void onPositiveButtonClicked(String[] list, int position);
+
         void onNegativeButtonClicked();
     }
 
@@ -26,7 +27,7 @@ public class ComboDialog extends DialogFragment {
         super.onAttach(context);
         try {
             mListener = (ComboListener) context;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new ClassCastException(getActivity().toString() + " ComboListener must implements");
         }
 
@@ -49,7 +50,7 @@ public class ComboDialog extends DialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mListener.onPositiveButtonClicked(list,position);
+                        mListener.onPositiveButtonClicked(list, position);
                     }
                 })
                 .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {

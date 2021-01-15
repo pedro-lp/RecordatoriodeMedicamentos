@@ -8,6 +8,8 @@ import android.os.Build;
 public class MyRebootReceiver extends BroadcastReceiver {
 
     @Override
+    //se hace el onReceive asi como la clase AlarmReceiver,
+    // y se ayuda de la clase RebootServiceClass
     public void onReceive(Context context, Intent intent) {
         Intent serviceIntent = new Intent(context, RebootServiceClass.class);
         serviceIntent.putExtra("caller", "RebootReceiver");

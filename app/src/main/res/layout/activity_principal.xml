@@ -23,7 +23,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/botones_navegadores"
-        style="@style/BottomNavigayion"/>
+        app:menu="@menu/botones_navegadores"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

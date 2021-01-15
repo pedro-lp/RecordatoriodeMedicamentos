@@ -31,6 +31,7 @@ public class RebootServiceClass extends IntentService {
     }
 
     @Override
+    //ayuda a poder asignar de nuevo la notificacion
     protected void onHandleIntent(Intent intent) {
         String intentType = intent.getExtras().getString("caller");
         if (intentType == null) return;

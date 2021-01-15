@@ -44,12 +44,19 @@ public class NotificationService extends IntentService {
         Intent mIntent = new Intent(this, Recordatorios.class);
         Resources res = this.getResources();
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-
+        //obtiene lo que es un sonido para establecerlo
+        //Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        //mensaje que aparece en la notificacion
         String message = getString(R.string.new_notification);
 
+        //busca el sonido y se reproduce
         mp = MediaPlayer.create(this, R.raw.sound_long);
         mp.start();
-        
+
+        //se va modificando el audio del telefono
+        //int streamType = AudioManager.STREAM_MUSIC;
+        //AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        //audioManager.adjustStreamVolume(streamType, AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             final int NOTIFY_ID = 0; // ID of notification
             String id = NOTIFICATION_CHANNEL_ID; // default_channel_id
@@ -65,7 +72,8 @@ public class NotificationService extends IntentService {
             if (mChannel == null) {
                 mChannel = new NotificationChannel(id, title, importance);
                 mChannel.enableVibration(true);
-                mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                //mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 100, 200, 300, 400, 500, 400, 300, 200, 100});
                 notifManager.createNotificationChannel(mChannel);
             }
             builder = new NotificationCompat.Builder(context, id);
@@ -77,10 +85,9 @@ public class NotificationService extends IntentService {
                     .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.ic_notification))
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setAutoCancel(true)
-                    .setSound(soundUri)
-
+                    //.setSound(soundUri)
                     .setContentIntent(pendingIntent)
-                    .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                    .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 100, 200, 300, 400, 500, 400, 300, 200, 100});
             Notification notification = builder.build();
             notifManager.notify(NOTIFY_ID, notification);
 
@@ -92,7 +99,7 @@ public class NotificationService extends IntentService {
                     .setContentIntent(pendingIntent)
                     .setSmallIcon(R.drawable.ic_notification)
                     .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.ic_notification))
-                    .setSound(soundUri)
+                    //.setSound(soundUri)
                     .setAutoCancel(true)
                     .setContentTitle(getString(R.string.app_name)).setCategory(Notification.CATEGORY_SERVICE)
                     .setContentText(message).build();

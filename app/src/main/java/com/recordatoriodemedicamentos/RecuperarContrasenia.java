@@ -21,6 +21,7 @@ public class RecuperarContrasenia extends AppCompatActivity {
     private String correoElectronico;
     private FirebaseAuth auth;
     private ProgressDialog pd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +35,12 @@ public class RecuperarContrasenia extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 correoElectronico = correo.getText().toString();
-                if(!correoElectronico.isEmpty()){
+                if (!correoElectronico.isEmpty()) {
                     pd.setMessage("Espera un momento...");
                     pd.setCanceledOnTouchOutside(false);
                     pd.show();
                     restablecer();
-                }else{
+                } else {
                     Toast.makeText(RecuperarContrasenia.this, "Ingresa tu correo electronico", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -51,9 +52,9 @@ public class RecuperarContrasenia extends AppCompatActivity {
         auth.sendPasswordResetEmail(correoElectronico).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Toast.makeText(RecuperarContrasenia.this, "Se envio un link a tu correo para restablecer tu contraseña", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(RecuperarContrasenia.this, "Error al enviar el correo a la direccion indicada", Toast.LENGTH_SHORT).show();
                 }
                 pd.dismiss();

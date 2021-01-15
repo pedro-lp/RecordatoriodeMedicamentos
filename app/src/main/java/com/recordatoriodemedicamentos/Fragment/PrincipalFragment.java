@@ -17,7 +17,7 @@ public class PrincipalFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        vista = inflater.inflate(R.layout.fragment_principal, container,false);
+        vista = inflater.inflate(R.layout.fragment_principal, container, false);
 
         return vista;
     }

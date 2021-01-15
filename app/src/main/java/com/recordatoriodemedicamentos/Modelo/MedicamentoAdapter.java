@@ -94,8 +94,8 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
     }
 
     public class medicamentoView extends RecyclerView.ViewHolder {
-        private TextView nombre,unidad,duracion,recordar,priToma;
-        private Button btnEditarMed,btnEliminarMed;
+        private TextView nombre, unidad, duracion, recordar, priToma;
+        private Button btnEditarMed, btnEliminarMed;
 
         public medicamentoView(@NonNull View itemView) {
             super(itemView);
