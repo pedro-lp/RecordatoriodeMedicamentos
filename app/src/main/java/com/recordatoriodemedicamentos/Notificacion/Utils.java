@@ -7,11 +7,10 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.recordatoriodemedicamentos.Notificacion.AlarmReceiver;
-
 import static android.content.Context.ALARM_SERVICE;
 
 public class Utils {
-
+    //programa la alarma
     public static void setAlarm(int i, Long timestamp, Context ctx) {
         AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(ALARM_SERVICE);
         Intent alarmIntent = new Intent(ctx, AlarmReceiver.class);

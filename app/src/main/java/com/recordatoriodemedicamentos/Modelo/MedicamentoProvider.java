@@ -1,9 +1,7 @@
 package com.recordatoriodemedicamentos.Modelo;
 
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,7 +17,7 @@ import java.util.Map;
 public class MedicamentoProvider {
 
     DatabaseReference mDatabase;
-
+    public  static ArrayList<Medicamento> medicamentosList = new ArrayList<>();
     public MedicamentoProvider() {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Medicamento");
     }
@@ -66,6 +64,7 @@ public class MedicamentoProvider {
                         medicamento.setDuracion(ds.child("Duración").getValue().toString());
                         medicamento.setRecordar(ds.child("Recordar Cada").getValue().toString());
                         medicamento.setPriToma(ds.child("Primera Toma").getValue().toString());
+                        medicamentosList.add(medicamento);
                         medicamentoAdapter.agregarMedicamento(medicamento);
                     }
                 }

@@ -39,6 +39,7 @@ import com.recordatoriodemedicamentos.Modelo.IMedicamento;
 import com.recordatoriodemedicamentos.Modelo.Medicamento;
 import com.recordatoriodemedicamentos.Modelo.MedicamentoAdapter;
 import com.recordatoriodemedicamentos.Modelo.MedicamentoProvider;
+import com.recordatoriodemedicamentos.Notificacion.Recordatorios;
 
 import java.util.ArrayList;
 import java.util.List;
