@@ -19,7 +19,7 @@
         android:layout_height="176dp">
 
         <TextView
-            android:id="@+id/txtNombreMed"
+            android:id="@+id/txtNombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -36,23 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtPriToma"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:text="TextView"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/txtRecordarMed" />
-
-        <TextView
-            android:id="@+id/txtUnidadMed"
+            android:id="@+id/textEdad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -64,26 +48,10 @@
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/txtNombreMed" />
+            app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
         <TextView
-            android:id="@+id/txtRecordarMed"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="left"
-            android:text="TextView"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/txtDuracionMed" />
-
-        <TextView
-            android:id="@+id/txtDuracionMed"
+            android:id="@+id/txt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -95,41 +63,37 @@
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/txtUnidadMed" />
+            app:layout_constraintTop_toBottomOf="@+id/textEdad" />
 
         <Button
             android:id="@+id/btnEditarContacto"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#0D85F2"
-            app:cornerRadius="30dp"
             android:text="Modificar"
             android:textColor="#FDFCFC"
             android:textStyle="bold"
+            app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPriToma" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btnEliminarContacto"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#F01010"
-            app:cornerRadius="30dp"
             android:text="Eliminar"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
+            app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/txtPriToma" />
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
@@ -195,35 +159,6 @@
             app:layout_constraintStart_toEndOf="@+id/card"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             tools:text="@string/edtDuracion" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/edtPriToma"
-            android:textColor="#FC6C1C"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            tools:text="@string/edtPriToma" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:text="@string/edtRecordar"
-            android:textColor="#FC6C1C"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/card"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:text="@string/edtRecordar" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

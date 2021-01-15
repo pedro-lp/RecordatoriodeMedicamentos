@@ -21,7 +21,7 @@ public class MedicamentoProvider {
     DatabaseReference mDatabase;
 
     public MedicamentoProvider() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Medicamento");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Medicamento").child("Tutores");
     }
 
     public Task<Void> createMedicamento(String idUsuario, Medicamento medicamento) {
