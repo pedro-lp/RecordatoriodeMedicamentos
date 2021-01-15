@@ -9,9 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.recordatoriodemedicamentos.R;
 
 public class PacientesFragment extends Fragment {
+    FloatingActionButton btnAgregarBMat;
     View vista;
 
     @Nullable

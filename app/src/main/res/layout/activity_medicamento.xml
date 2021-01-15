@@ -15,15 +15,21 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btnAgregar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout4"
@@ -42,10 +48,10 @@
                     android:id="@+id/edtNomMedicamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre del medicamento"
                     android:background="@color/ColorWhite"
-                    android:textStyle="bold"
-                    android:inputType="textPersonName" />
+                    android:hint="Nombre del medicamento"
+                    android:inputType="textPersonName"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -55,8 +61,8 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="40dp"
-                app:errorEnabled="true"
                 android:textColorHint="@color/teal_200"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,10 +72,10 @@
                     android:id="@+id/edtUnidad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Unidad"
                     android:background="@color/ColorWhite"
-                    android:textStyle="bold"
-                    android:inputType="textPersonName" />
+                    android:hint="Unidad"
+                    android:inputType="textPersonName"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -79,8 +85,8 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="40dp"
-                app:errorEnabled="true"
                 android:textColorHint="@color/teal_200"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,10 +96,10 @@
                     android:id="@+id/edtDuracion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Duración"
                     android:background="@color/ColorWhite"
-                    android:textStyle="bold"
-                    android:inputType="textPersonName" />
+                    android:hint="Duración"
+                    android:inputType="textPersonName"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -103,8 +109,8 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="40dp"
-                app:errorEnabled="true"
                 android:textColorHint="@color/teal_200"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,10 +120,10 @@
                     android:id="@+id/edtRecordar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Recordar Cada"
                     android:background="@color/ColorWhite"
-                    android:textStyle="bold"
-                    android:inputType="textPersonName" />
+                    android:hint="Recordar Cada"
+                    android:inputType="textPersonName"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -146,14 +152,6 @@
                     android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="558dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
