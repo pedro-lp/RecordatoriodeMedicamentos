@@ -22,7 +22,7 @@ public class MedicamentoProvider {
     public static ArrayList<Medicamento> medicamentosList = new ArrayList<>();
 
     public MedicamentoProvider() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Medicamento");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Medicamento").child("Tutores");
     }
 
     public Task<Void> createMedicamento(String idUsuario, Medicamento medicamento) {
