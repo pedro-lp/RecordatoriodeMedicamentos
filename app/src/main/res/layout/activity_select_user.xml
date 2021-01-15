@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/ColorPrimary"
-    tools:context=".SelectOptionActivity">
+    tools:context=".SelectUserActivity">
 
 
     <ImageView
@@ -32,15 +31,15 @@
         android:layout_marginBottom="32dp"
         android:gravity="center"
         android:text="@string/selecciona_una_opci_n"
-        android:textColor="@color/ColorWhite"
+        android:textColor="@color/purple_500"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintBottom_toTopOf="@+id/btnTutor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnTutor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -48,17 +47,18 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/ColorBlueLight"
+        app:cornerRadius="30dp"
+        android:backgroundTint="@color/purple_500"
+        android:textStyle="bold"
         android:text="@string/ya_tengo_cuenta"
         android:textColor="@color/ColorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintBottom_toTopOf="@+id/btnPaciente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnPaciente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -66,9 +66,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/ColorWhite"
+        app:cornerRadius="30dp"
+        android:backgroundTint="@color/purple_500"
         android:text="@string/registrarme_ahora"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

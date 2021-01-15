@@ -1,4 +1,4 @@
-package com.recordatoriodemedicamentos;
+package com.recordatoriodemedicamentos.Notificacion;
 
 import android.annotation.TargetApi;
 import android.app.IntentService;
@@ -16,6 +16,8 @@ import android.net.Uri;
 import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
+
+import com.recordatoriodemedicamentos.R;
 
 public class NotificationService extends IntentService {
     public static MediaPlayer mp;

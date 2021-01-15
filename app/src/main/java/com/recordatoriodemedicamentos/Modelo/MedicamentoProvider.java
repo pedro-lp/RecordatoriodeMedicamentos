@@ -47,8 +47,9 @@ public class MedicamentoProvider {
     public void removeMedicamento(String idUsuario,Medicamento medicamento,MedicamentoAdapter medicamentoAdapter) {
         String idMedicamento = String.valueOf(medicamento.getId());
         mDatabase.child(idUsuario).child(idMedicamento).removeValue();
-        medicamentoAdapter.eliminarMedicamento(medicamento);
+        medicamentoAdapter .eliminarMedicamento(medicamento);
     }
+
 
     public void showMedicamento(String idUsuario, MedicamentoAdapter medicamentoAdapter, ArrayList arrayList){
         mDatabase.child(idUsuario).addValueEventListener(new ValueEventListener() {

@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        //MyToolbar.show(this,"Registro de Usuario",true);
+        getSupportActionBar().setTitle("Registro de Usuario");
 
         mAuthProvider = new AuthProvider();
         mClientProvider = new UsuarioProvider();
@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         mTextInputName = findViewById(R.id.textInputName);
         mTextInputEmail = findViewById(R.id.textInputEmail);
         mTextInputPassword = findViewById(R.id.textInputPassword);
-        mButtonRegister = findViewById(R.id.btnRegister);
+        mButtonRegister = findViewById(R.id.btnEntrarR);
 
         mDialog = new SpotsDialog.Builder().setContext(RegisterActivity.this).setMessage("Cargando").build();
 

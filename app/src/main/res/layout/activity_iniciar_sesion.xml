@@ -5,63 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".RegisterActivity">
+    tools:context=".IniciarSesionActivity">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        >
 
-        <LinearLayout
+        <com.github.florent37.shapeofview.shapes.ArcView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:layout_height="200dp"
+            android:elevation="4dp"
+            app:shape_arc_cropDirection="outside"
+            app:shape_arc_height="20dp"
+            app:shape_arc_position="bottom"
+            >
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/icon_user" />
-
-            <com.google.android.material.textfield.TextInputLayout
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/teal_200"
-                android:layout_marginLeft="5dp">
+                android:background="@color/purple_500" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nombre completo"
-                    android:background="@color/ColorWhite"
-                    android:textStyle="bold"
-                    android:inputType="text">
-                </com.google.android.material.textfield.TextInputEditText>
+            <TextView
+                android:id="@+id/textViewNameBookingDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Iniciar Sesión"
+                android:textAlignment="center"
+                android:textColor="@color/ColorWhite"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_margin="50dp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+        </com.github.florent37.shapeofview.shapes.ArcView>
 
-        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp">
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
                 android:src="@drawable/icon_email" />
 
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/teal_200"
-                android:layout_marginLeft="5dp">
+                android:layout_marginLeft="5dp"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputEmail"
@@ -71,29 +74,34 @@
                     android:background="@color/ColorWhite"
                     android:textStyle="bold"
                     android:inputType="textEmailAddress">
+
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
                 android:src="@drawable/icon_password" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:textColorHint="@color/teal_200"
-                android:layout_marginLeft="5dp">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputPassword"
@@ -103,10 +111,10 @@
                     android:background="@color/ColorWhite"
                     android:textStyle="bold"
                     android:inputType="textPassword">
+
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
 
         <LinearLayout
@@ -116,18 +124,39 @@
             android:gravity="bottom">
 
             <Button
-                android:id="@+id/btnEntrarR"
+                android:id="@+id/btnEntrarI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="REGISTRARME"
-                app:cornerRadius="30dp"
+                android:text="INGRESAR"
                 android:backgroundTint="@color/purple_500"
-                android:textColor="@color/ColorWhite"
-                android:layout_margin="30dp"/>
+                app:cornerRadius="30dp"
+                android:layout_margin="30dp"
+                android:textColor="@color/ColorWhite" />
 
         </LinearLayout>
 
 
+
+
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/icono"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center|top"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_gravity="left|top"
+        app:civ_border_width="3dp"
+        app:civ_border_color="@color/ColorWhite"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

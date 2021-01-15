@@ -1,4 +1,4 @@
-package com.recordatoriodemedicamentos;
+package com.recordatoriodemedicamentos.Notificacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.recordatoriodemedicamentos.R;
 
 import java.util.Calendar;
 

@@ -17,7 +17,7 @@ import com.recordatoriodemedicamentos.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.medicamentoView> implements Filterable {
+public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.medicamentoView> {
 
     private List<Medicamento> medicamentoList = new ArrayList<>();
     private Context context;
@@ -66,37 +66,6 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
         this.notifyDataSetChanged();
     }
 
-    @Override
-    public Filter getFilter() {
-
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                String palabra = constraint.toString();
-
-                if (palabra.isEmpty()) {
-                    medicamentoList = medicamentoArrayList;
-                } else {
-                    ArrayList<Medicamento> filtrarLista = new ArrayList<>();
-                    for (Medicamento medicamento : medicamentoArrayList) {
-                        if (medicamento.getNombre().toLowerCase().contains(constraint)) {
-                            filtrarLista.add(medicamento);
-                        }
-                    }
-                    medicamentoList = filtrarLista;
-                }
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = medicamentoList;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                medicamentoList = (ArrayList<Medicamento>) results.values;
-                notifyDataSetChanged();
-            }
-        };
-    }
 
     class eventoEditar implements View.OnClickListener {
         private Medicamento medicamento;

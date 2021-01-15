@@ -19,23 +19,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecordatorioDeMedicamentos">
-        <activity android:name=".RecuperarContrasenia"></activity>
+        <activity android:name=".IniciarSesionActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"></activity>
+        <activity android:name=".RecuperarContrasenia" />
         <activity
             android:name=".MedicamentoActivity"
             android:parentActivityName=".PrincipalActivity" />
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".SelectOptionActivity" />
+            android:parentActivityName=".SelectUserActivity" />
         <activity
             android:name=".RegisterActivity"
-            android:parentActivityName=".SelectOptionActivity" />
+            android:parentActivityName=".SelectUserActivity" />
         <activity
-            android:name=".SelectOptionActivity"
+            android:name=".SelectUserActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".Recordatorios" />
+        <activity android:name=".Notificacion.Recordatorios" />
         <activity android:name=".PrincipalActivity" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,19 +46,23 @@
             </intent-filter>
         </activity> <!-- permisos notificacion -->
         <receiver
-            android:name=".AlarmReceiver"
+            android:name=".Notificacion.AlarmReceiver"
             android:enabled="true" />
 
         <service
-            android:name=".NotificationService"
+            android:name=".Notificacion.NotificationService"
             android:enabled="true" /> <!-- MAKE ALARMS RESTART ON REBOOT -->
-        <service android:name=".RebootServiceClass" />
+        <service android:name=".Notificacion.RebootServiceClass" />
 
-        <receiver android:name=".MyRebootReceiver">
+        <receiver android:name=".Notificacion.MyRebootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

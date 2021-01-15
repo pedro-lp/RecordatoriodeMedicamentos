@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_principal"
+        android:icon="@drawable/icon_home"
+        android:title="Principal"/>
+
+    <item android:id="@+id/nav_pacientes"
+        android:icon="@drawable/icon_paciente"
+        android:title="Pacientes"/>
+
+    <item android:id="@+id/nav_medicamentos"
+        android:icon="@drawable/icon_pastillas"
+        android:title="Medicamentos"/>
+
+
+    <item android:id="@+id/nav_consultorios"
+        android:icon="@drawable/icon_doctor"
+        android:title="Consultorios"/>
+</menu>

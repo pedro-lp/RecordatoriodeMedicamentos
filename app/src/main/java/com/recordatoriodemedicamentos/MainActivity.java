@@ -9,15 +9,24 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     Button btnIngresar;
-    Button btnSalir;
+    Button btnIniciarSesion;
+    Button btnRestrarse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnRestrarse = findViewById(R.id.btnRegistrate);
         btnIngresar = findViewById(R.id.btnIngresar);
-        btnSalir = findViewById(R.id.btnSalir);
+        btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
+
+        btnRestrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Registrate();
+            }
+        });
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnSalir.setOnClickListener(new View.OnClickListener() {
+        btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Salir();
+                IniciarSesion();
             }
         });
     }
@@ -49,7 +58,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void Salir() {
-        finish();
+    private void Registrate() {
+        Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    private void IniciarSesion() {
+        Intent intent = new Intent(MainActivity.this,SelectUserActivity.class);
+        startActivity(intent);
     }
 }
