@@ -66,7 +66,7 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         authProvider = new AuthProvider();
         mediProvider = new MedicamentoProvider();
 
-        preMed = getApplicationContext().getSharedPreferences("typeBoton",MODE_PRIVATE);
+        preMed = getApplicationContext().getSharedPreferences("typeBoton", MODE_PRIVATE);
         edtMed = preMed.edit();
 
         idrecyclerView = (RecyclerView) findViewById(R.id.rcvlistaMedicamentos);
@@ -75,7 +75,7 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         idrecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         idrecyclerView.setAdapter(medicamentoAdapter);
 
-        mediProvider.showMedicamento(authProvider.getId(),medicamentoAdapter,medicamentoArrayList);
+        mediProvider.showMedicamento(authProvider.getId(), medicamentoAdapter, medicamentoArrayList);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -104,18 +104,18 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
             //authProvider.logout();
             //Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
             //startActivity(intent);
-           // finish();
+            // finish();
             //Cerrar sesion en firebase
             mAuth.signOut();
             //Cerrar sesion con google
             mGoogle.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(i);
                         PrincipalActivity.this.finish();
-                    }else{
+                    } else {
                         Toast.makeText(PrincipalActivity.this, "Error al cerrar la sesion", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -128,11 +128,11 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
         Intent miIntent = null;
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btnAgrMed:
-                edtMed.putString("boton","agregar");
+                edtMed.putString("boton", "agregar");
                 edtMed.apply();
                 Intent intent = new Intent(PrincipalActivity.this, MedicamentoActivity.class);
                 startActivity(intent);
@@ -142,10 +142,10 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
 
     @Override
     public void OpcionEditar(Medicamento medicamento) {
-        edtMed.putString("boton","modificar");
+        edtMed.putString("boton", "modificar");
         edtMed.apply();
         Intent intent = new Intent(PrincipalActivity.this, MedicamentoActivity.class);
-        intent.putExtra("medicamento",medicamento);
+        intent.putExtra("medicamento", medicamento);
         startActivity(intent);
 
     }
@@ -159,7 +159,7 @@ public class PrincipalActivity extends AppCompatActivity implements IMedicamento
         alerta.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mediProvider.removeMedicamento(authProvider.getId(),medicamento,medicamentoAdapter);
+                mediProvider.removeMedicamento(authProvider.getId(), medicamento, medicamentoAdapter);
                 Toast.makeText(PrincipalActivity.this, "Se Elimino Correctamente el Medicamento", Toast.LENGTH_SHORT).show();
             }
         });

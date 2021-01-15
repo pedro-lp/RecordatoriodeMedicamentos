@@ -1,10 +1,12 @@
 package com.recordatoriodemedicamentos;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -54,17 +56,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void Ingresar() {
-        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
     private void Registrate() {
-        Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+        Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
 
     private void IniciarSesion() {
-        Intent intent = new Intent(MainActivity.this,SelectUserActivity.class);
+        Intent intent = new Intent(MainActivity.this, SelectUserActivity.class);
         startActivity(intent);
     }
 }

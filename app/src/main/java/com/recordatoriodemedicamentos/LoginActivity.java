@@ -3,6 +3,7 @@ package com.recordatoriodemedicamentos;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     private AuthProvider mAuthProvider;
     private String id, name, email;
     String TAG = "GoogleSingInLoginActivity";
-    int  RC_SIGN_IN = 1;
+    int RC_SIGN_IN = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,22 +74,23 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mDialog.show();
-        if(requestCode== RC_SIGN_IN){
+        if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            if(task.isSuccessful()){
-                try{
+            if (task.isSuccessful()) {
+                try {
                     GoogleSignInAccount account = task.getResult(ApiException.class);
-                    Log.d(TAG, "firebaseAuthWithGoogle: "+account.getId());
+                    Log.d(TAG, "firebaseAuthWithGoogle: " + account.getId());
                     firebaseAuthWithGoogle(account.getIdToken());
-                }catch(Exception e){
-                    Log.w(TAG,"Google sign in failed");
+                } catch (Exception e) {
+                    Log.w(TAG, "Google sign in failed");
                 }
-            }else{
-                Log.d(TAG, "Error, login no exitoso:"+task.getException().toString());
+            } else {
+                Log.d(TAG, "Error, login no exitoso:" + task.getException().toString());
                 Toast.makeText(this, "No se seleccionó ninguna cuenta...", Toast.LENGTH_SHORT).show();
             }
         }
@@ -99,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Log.d(TAG, "signInWithCredential:success");
                     mDialog.dismiss();
                     FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -110,24 +112,24 @@ public class LoginActivity extends AppCompatActivity {
                     create(usuario);
                     startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
                     LoginActivity.this.finish();
-                }else{
-                    Log.w(TAG,"signInWithCredential:failure", task.getException());
+                } else {
+                    Log.w(TAG, "signInWithCredential:failure", task.getException());
                 }
             }
         });
     }
 
-    private void singIn(){
+    private void singIn() {
         Intent intent = mGoogle.getSignInIntent();
         startActivityForResult(intent, RC_SIGN_IN);
         mDialog.dismiss();
     }
 
-    public void create(Usuario usuario){
+    public void create(Usuario usuario) {
         mClientProvider.create(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(!task.isSuccessful()) {
+                if (!task.isSuccessful()) {
                     Toast.makeText(LoginActivity.this, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -136,8 +138,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        FirebaseUser user= mAuth.getCurrentUser();
-        if(user != null){
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
             Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
             startActivity(intent);
         }

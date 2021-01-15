@@ -44,13 +44,13 @@ public class MedicinasFragment extends Fragment implements IMedicamento {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        vista = inflater.inflate(R.layout.fragment_medicinas, container,false);
+        vista = inflater.inflate(R.layout.fragment_medicinas, container, false);
 
         btnAgregar = (FloatingActionButton) vista.findViewById(R.id.btnAgrMed);
         authProvider = new AuthProvider();
         mediProvider = new MedicamentoProvider();
 
-        preMed = getContext().getSharedPreferences("typeBoton",getContext().MODE_PRIVATE);
+        preMed = getContext().getSharedPreferences("typeBoton", getContext().MODE_PRIVATE);
         edtMed = preMed.edit();
 
         idrecyclerView = (RecyclerView) vista.findViewById(R.id.rcvlistaMedicamentos);
@@ -59,13 +59,13 @@ public class MedicinasFragment extends Fragment implements IMedicamento {
         idrecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         idrecyclerView.setAdapter(medicamentoAdapter);
 
-        mediProvider.showMedicamento(authProvider.getId(),medicamentoAdapter,medicamentoArrayList);
+        mediProvider.showMedicamento(authProvider.getId(), medicamentoAdapter, medicamentoArrayList);
 
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                edtMed.putString("boton","agregar");
+                edtMed.putString("boton", "agregar");
                 edtMed.apply();
                 Intent intent = new Intent(getContext(), MedicamentoActivity.class);
                 startActivity(intent);
@@ -78,10 +78,10 @@ public class MedicinasFragment extends Fragment implements IMedicamento {
 
     @Override
     public void OpcionEditar(Medicamento medicamento) {
-        edtMed.putString("boton","modificar");
+        edtMed.putString("boton", "modificar");
         edtMed.apply();
         Intent intent = new Intent(getContext(), MedicamentoActivity.class);
-        intent.putExtra("medicamento",medicamento);
+        intent.putExtra("medicamento", medicamento);
         startActivity(intent);
     }
 
@@ -94,7 +94,7 @@ public class MedicinasFragment extends Fragment implements IMedicamento {
         alerta.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mediProvider.removeMedicamento(authProvider.getId(),medicamento,medicamentoAdapter);
+                mediProvider.removeMedicamento(authProvider.getId(), medicamento, medicamentoAdapter);
                 Toast.makeText(getContext(), "Se Elimino Correctamente el Medicamento", Toast.LENGTH_SHORT).show();
             }
         });

@@ -17,7 +17,7 @@ public class PacientesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        vista = inflater.inflate(R.layout.fragment_pacientes, container,false);
+        vista = inflater.inflate(R.layout.fragment_pacientes, container, false);
 
         return vista;
     }

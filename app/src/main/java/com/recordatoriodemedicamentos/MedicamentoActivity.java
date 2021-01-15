@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class MedicamentoActivity extends AppCompatActivity implements ComboDialog.ComboListener {
-    EditText nombre,unidad,duracion,recordar,priToma;
+    EditText nombre, unidad, duracion, recordar, priToma;
     AuthProvider authProvider;
     MedicamentoProvider mediProvider;
     Button btnAgregar;
@@ -47,7 +47,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicamento);
 
-        preMed = getApplicationContext().getSharedPreferences("typeBoton",MODE_PRIVATE);
+        preMed = getApplicationContext().getSharedPreferences("typeBoton", MODE_PRIVATE);
 
         btnAgregar = (Button) findViewById(R.id.btnAgregar);
         btnModificar = (Button) findViewById(R.id.btnModificar);
@@ -71,7 +71,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
             public void onClick(View v) {
                 DialogFragment comboDialog = new ComboDialog();
                 comboDialog.setCancelable(false);
-                comboDialog.show(getSupportFragmentManager(),"Single Choise Dialog");
+                comboDialog.show(getSupportFragmentManager(), "Single Choise Dialog");
             }
         });
 
@@ -87,7 +87,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
                         String date = year + "-" + twoDigits(month) + "-" + twoDigits(day);
                         duracion.setText(date);
                     }
-                },year,month,day);
+                }, year, month, day);
                 datePickerDialog.show();
             }
         });
@@ -104,7 +104,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
                                 Hour = hourOfDay;
                                 Minute = minute;
 
-                                String time = Hour + ":" +Minute;
+                                String time = Hour + ":" + Minute;
                                 SimpleDateFormat f24Hour = new SimpleDateFormat("HH:mm");
                                 try {
                                     Date date = f24Hour.parse(time);
@@ -112,15 +112,15 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
                                     SimpleDateFormat f12Hour = new SimpleDateFormat("hh:mm aa");
 
                                     recordar.setText(f12Hour.format(date));
-                                } catch (ParseException e){
+                                } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
                             }
-                        },12,0,false
+                        }, 12, 0, false
                 );
                 timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-               timePickerDialog.updateTime(Hour,Minute);
-               timePickerDialog.show();
+                timePickerDialog.updateTime(Hour, Minute);
+                timePickerDialog.show();
             }
         });
 
@@ -159,10 +159,10 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
 
 
         String typeUser = preMed.getString("boton", "");
-        if(typeUser.equals("agregar")) {
+        if (typeUser.equals("agregar")) {
             getSupportActionBar().setTitle("Añadir medicamento");
             btnAgregar.setVisibility(View.VISIBLE);
-        }else if (typeUser.equals("modificar")){
+        } else if (typeUser.equals("modificar")) {
             getSupportActionBar().setTitle("Modificar medicamento");
             btnModificar.setVisibility(View.VISIBLE);
             medicamento = (Medicamento) getIntent().getSerializableExtra("medicamento");
@@ -171,7 +171,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
     }
 
     private String twoDigits(int n) {
-        return (n<=9) ? ("0"+n) : String.valueOf(n);
+        return (n <= 9) ? ("0" + n) : String.valueOf(n);
     }
 
     private void obtenerDatos() {
@@ -183,8 +183,8 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
         priToma.setText(medicamento.getPriToma());
     }
 
-    public void onClick(View view){
-        switch (view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.btnAgregar:
                 AgregarMedicamento();
                 break;
@@ -194,33 +194,33 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
         }
     }
 
-    public void AgregarMedicamento(){
+    public void AgregarMedicamento() {
         final String Nombre = nombre.getText().toString();
-        final String  Unidad = unidad.getText().toString();
+        final String Unidad = unidad.getText().toString();
         final String Duracion = duracion.getText().toString();
         final String Recordar = recordar.getText().toString();
         final String PriToma = priToma.getText().toString();
 
-        if(!Nombre.isEmpty() && !Unidad.isEmpty() && !Duracion.isEmpty() && !Recordar.isEmpty() && !PriToma.isEmpty()){
+        if (!Nombre.isEmpty() && !Unidad.isEmpty() && !Duracion.isEmpty() && !Recordar.isEmpty() && !PriToma.isEmpty()) {
             String idMedAgr = UUID.randomUUID().toString();
-            Medicamento mAgr = new Medicamento(idMedAgr,Nombre,Unidad,Duracion,Recordar,PriToma);
-            mediProvider.createMedicamento(authProvider.getId(),mAgr);
+            Medicamento mAgr = new Medicamento(idMedAgr, Nombre, Unidad, Duracion, Recordar, PriToma);
+            mediProvider.createMedicamento(authProvider.getId(), mAgr);
             finish();
         } else {
             Toast.makeText(this, "Ingrese todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void modificarMedicamento(){
+    public void modificarMedicamento() {
         final String Nombre = nombre.getText().toString();
-        final String  Unidad = unidad.getText().toString();
+        final String Unidad = unidad.getText().toString();
         final String Duracion = duracion.getText().toString();
         final String Recordar = recordar.getText().toString();
         final String PriToma = priToma.getText().toString();
 
-        if(!Nombre.isEmpty() && !Unidad.isEmpty() && !Duracion.isEmpty() && !Recordar.isEmpty() && !PriToma.isEmpty()){
-            Medicamento mMod = new Medicamento(idMedMod,Nombre,Unidad,Duracion,Recordar,PriToma);
-            mediProvider.changeMedicamento(authProvider.getId(),mMod);
+        if (!Nombre.isEmpty() && !Unidad.isEmpty() && !Duracion.isEmpty() && !Recordar.isEmpty() && !PriToma.isEmpty()) {
+            Medicamento mMod = new Medicamento(idMedMod, Nombre, Unidad, Duracion, Recordar, PriToma);
+            mediProvider.changeMedicamento(authProvider.getId(), mMod);
             finish();
         } else {
             Toast.makeText(this, "Ingrese todos los campos", Toast.LENGTH_SHORT).show();

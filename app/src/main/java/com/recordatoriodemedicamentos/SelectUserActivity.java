@@ -1,6 +1,7 @@
 package com.recordatoriodemedicamentos;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ public class SelectUserActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Seleccionar tipo Usuario");
         //MyToolbar.show(this, "Seleccionar Opción", true);
 
-        mPref = getApplicationContext().getSharedPreferences("tipoUsuario",MODE_PRIVATE);
+        mPref = getApplicationContext().getSharedPreferences("tipoUsuario", MODE_PRIVATE);
         editor = mPref.edit();
 
         btnTutor = findViewById(R.id.btnTutor);
@@ -42,14 +43,14 @@ public class SelectUserActivity extends AppCompatActivity {
     }
 
     public void Login() {
-        editor.putString("usuario","tutor");
+        editor.putString("usuario", "tutor");
         editor.apply();
         Intent intent = new Intent(SelectUserActivity.this, IniciarSesionActivity.class);
         startActivity(intent);
     }
 
     public void Register() {
-        editor.putString("usuario","paciente");
+        editor.putString("usuario", "paciente");
         editor.apply();
         Intent intent = new Intent(SelectUserActivity.this, IniciarSesionActivity.class);
         startActivity(intent);
