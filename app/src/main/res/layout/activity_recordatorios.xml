@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/time_selected_is"
             android:textSize="24sp" />
 
         <TextView
@@ -25,8 +24,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
-            android:textSize="30sp"
-            tools:text="12:00" />
+            android:hint="@string/tomarmedicamento"
+            android:textSize="30sp" />
 
 
         <Button

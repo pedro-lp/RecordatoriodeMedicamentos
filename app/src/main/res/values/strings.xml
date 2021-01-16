@@ -37,6 +37,7 @@
     <string name="edtDuracion">Duración:</string>
     <string name="edtRecordar">Recordar Cada:</string>
     <string name="edtPriToma">Primera Toma:</string>
+    <string name="tomarmedicamento">Es Hora de que tomes tus medicamentos </string>
     <string-array name="items_unidad">
         <item>Tableta(s)</item>
         <item>Cápsula(s)</item>
