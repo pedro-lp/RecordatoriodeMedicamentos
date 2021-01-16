@@ -26,7 +26,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import dmax.dialog.SpotsDialog;
 
 public class IniciarSesionActivity extends AppCompatActivity {
-
     TextInputEditText mTextInputEmail;
     TextInputEditText mTextInputPassword;
     Button mButtonLogin;
@@ -38,7 +37,6 @@ public class IniciarSesionActivity extends AppCompatActivity {
     AlertDialog mDialog;
 
     SharedPreferences mPref;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +103,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                     }
                                 });
                             } else if (typeUser.equals("paciente")) {
-                                mDatabase.child("Usuarios").child("Pacientes").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                mDatabase.child("Paciente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         if (dataSnapshot.exists()) {
@@ -117,10 +115,8 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                             mAuth.signOut();
                                         }
                                     }
-
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                                     }
                                 });
                             }
@@ -130,13 +126,11 @@ public class IniciarSesionActivity extends AppCompatActivity {
                         mDialog.dismiss();
                     }
                 });
-
             } else {
                 Toast.makeText(IniciarSesionActivity.this, "La contraseña debe tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(IniciarSesionActivity.this, "El Correo electronico y la contraseña son obligatorios", Toast.LENGTH_SHORT).show();
         }
-
     }
 }
