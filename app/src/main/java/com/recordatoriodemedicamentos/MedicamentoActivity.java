@@ -233,7 +233,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
         recordar.setText(medicamento.getRecordar());
         primeraToma.setText(medicamento.getPrimeraToma());
         ultimoToma.setText(medicamento.getUltimaToma());
-        existencia.setText(medicamento.getPrimeraToma());
+        existencia.setText(medicamento.getExistencia());
     }
 
     public void onClick(View view) {

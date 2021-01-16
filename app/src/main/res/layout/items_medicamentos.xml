@@ -198,12 +198,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
-            android:text="@string/edtDuracion"
             android:textColor="#FC6C1C"
+            android:text="Fecha inicio:"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/card"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:text="Fecha Inicio:" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/textView4"
@@ -212,12 +211,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
-            android:text="@string/edtPriToma"
+            android:text="Recordar Cada:"
             android:textColor="#FC6C1C"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            tools:text="Recordar Cada:" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6"/>
 
         <TextView
             android:id="@+id/textView6"
@@ -227,12 +225,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="@string/edtRecordar"
+            android:text="Fecha Final:"
             android:textColor="#FC6C1C"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/card"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:text="Fecha Final:" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
