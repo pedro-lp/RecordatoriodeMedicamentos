@@ -134,7 +134,8 @@ public class Recordatorios extends AppCompatActivity {
                     Date ultimoDia = dateFormat.parse(ultimoDia1.toString());
 
                     if (hoy.before(ultimoDia)) {
-                        Utils.setAlarm(alarmID, System.currentTimeMillis() + (2* 60 * 1000), Recordatorios.this);
+                        int horaRep = Integer.parseInt(MedicamentoProvider.medicamentosList.get(0).getRecordar());
+                        Utils.setAlarm(alarmID, System.currentTimeMillis() + (horaRep * 60 * 60 * 1000), Recordatorios.this);
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
