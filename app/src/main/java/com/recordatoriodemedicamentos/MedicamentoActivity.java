@@ -164,7 +164,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
 
                                     SimpleDateFormat f12Hour = new SimpleDateFormat("hh:mm aa");
 
-                                    fechaInicio.setText(f12Hour.format(date));
+                                    primeraToma.setText(f12Hour.format(date));
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
