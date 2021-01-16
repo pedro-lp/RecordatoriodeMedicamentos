@@ -68,22 +68,24 @@ public class Recordatorios extends AppCompatActivity {
 
                         today.set(Calendar.HOUR_OF_DAY, selectedHour);
                         today.set(Calendar.MINUTE, selectedMinute);
+
                         ArrayList<Long> fecha = new ArrayList<>();
-                        today.set(Calendar.HOUR_OF_DAY, 13);
-                        today.set(Calendar.MINUTE, 49);
+                        today.set(Calendar.HOUR_OF_DAY, 17);
+                        today.set(Calendar.MINUTE, 31);
                         today.set(Calendar.SECOND, 0);
                         fecha.add(today.getTimeInMillis());
 
-                        today.set(Calendar.HOUR_OF_DAY, 13);
-                        today.set(Calendar.MINUTE, 51);
-                        today.set(Calendar.SECOND, 0);
-                        fecha.add(today.getTimeInMillis());
-
-                        today.set(Calendar.HOUR_OF_DAY, 13);
-                        today.set(Calendar.MINUTE, 36);
+                        today.set(Calendar.HOUR_OF_DAY, 17);
+                        today.set(Calendar.MINUTE, 32);
                         today.set(Calendar.SECOND, 0);
 
                         fecha.add(today.getTimeInMillis());
+                        today.set(Calendar.HOUR_OF_DAY, 17);
+                        today.set(Calendar.MINUTE, 33);
+                        today.set(Calendar.SECOND, 0);
+                        fecha.add(today.getTimeInMillis());
+
+
                         //se asigna la hora
                         SharedPreferences.Editor edit = settings.edit();
                         edit.putString("hour", finalHour);
@@ -104,7 +106,8 @@ public class Recordatorios extends AppCompatActivity {
                         Utils.setAlarm(alarmID, today.getTimeInMillis(), Recordatorios.this);
                         //crea la alarma
                         //Utils.setAlarm(alarmID, today.getTimeInMillis(), Recordatorios.this);
-                        for (int i = 0; i < 2; i++) {
+
+                        for (int i = 0; i < MedicamentoProvider.medicamentosList.size(); i++) {
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getNombre(), Toast.LENGTH_SHORT).show();
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getPriToma(), Toast.LENGTH_SHORT).show();
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getDuracion(), Toast.LENGTH_SHORT).show();
