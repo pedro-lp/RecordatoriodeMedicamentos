@@ -44,7 +44,6 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
         Paciente paciente = pacienteList.get(i);
         pacienteView.nombre.setText(paciente.getNombre());
         pacienteView.edad.setText(paciente.getEdad());
-        pacienteView.btnAdministrar.setOnClickListener(new eventoEditar(paciente));
         pacienteView.btnEliminar.setOnClickListener(new eventoEliminar(paciente));
     }
 
@@ -88,13 +87,12 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
 
     public class pacienteView extends RecyclerView.ViewHolder {
         private TextView nombre,edad;
-        private Button btnAdministrar,btnEliminar;
+        private Button btnEliminar;
 
         public pacienteView(@NonNull View itemView) {
             super(itemView);
             nombre = itemView.findViewById(R.id.txtNombre);
             edad = itemView.findViewById(R.id.textEdad);
-            btnAdministrar = itemView.findViewById(R.id.btnAdministrar);
             btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
     }

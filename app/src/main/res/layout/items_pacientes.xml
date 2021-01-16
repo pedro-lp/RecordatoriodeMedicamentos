@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_alumnos"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="120dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
@@ -16,7 +16,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="176dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/txtNombre"
@@ -51,25 +51,6 @@
             app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
         <Button
-            android:id="@+id/btnAdministrar"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:backgroundTint="#0D85F2"
-            android:text="Administrar"
-            android:textColor="#FDFCFC"
-            android:textStyle="bold"
-            app:cornerRadius="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/card"
-            app:layout_constraintTop_toBottomOf="@+id/textEdad" />
-
-        <Button
             android:id="@+id/btnEliminar"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -77,7 +58,6 @@
             android:layout_marginLeft="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:layout_marginBottom="32dp"
             android:backgroundTint="#F01010"
             android:text="Eliminar"
             android:textColor="#FFFFFF"
@@ -86,7 +66,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/card" />
+            app:layout_constraintStart_toEndOf="@+id/card"
+            app:layout_constraintTop_toBottomOf="@+id/textEdad" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
@@ -94,8 +75,6 @@
             android:layout_height="115dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="80dp"
             app:cardCornerRadius="42dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

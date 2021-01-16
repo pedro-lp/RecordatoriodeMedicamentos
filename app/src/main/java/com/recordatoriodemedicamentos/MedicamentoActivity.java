@@ -150,8 +150,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
             public void onClick(View v) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
                         MedicamentoActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        new TimePickerDialog.OnTimeSetListener() {
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 Hour = hourOfDay;
