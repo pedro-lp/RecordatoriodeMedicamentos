@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.recordatoriodemedicamentos.Notificacion.CreateNotification;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -59,25 +60,32 @@ public class MedicamentoProvider {
 
 
     public void showMedicamento(String idUsuario, MedicamentoAdapter medicamentoAdapter, ArrayList arrayList) {
-        mDatabase.child(idUsuario).addValueEventListener(new ValueEventListener() {
+        mDatabase.child(idUsuario);
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    //se crea una instancia de las notificaciones del sistema
+                    //CreateNotification iniciarNot = new CreateNotification();
+
+
                     arrayList.clear();
                     Medicamento medicamento = null;
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        medicamento = new Medicamento();
-                        medicamento.setId(ds.getKey());
-                        medicamento.setNombre(ds.child("Nombre").getValue().toString());
-                        medicamento.setUnidad(ds.child("Unidad").getValue().toString());
-                        medicamento.setFechaInicio(ds.child("Fecha Inicio").getValue().toString());
-                        medicamento.setFechaFinal(ds.child("Fecha Final").getValue().toString());
-                        medicamento.setRecordar(ds.child("Recordar Cada").getValue().toString());
-                        medicamento.setPrimeraToma(ds.child("Primera Toma").getValue().toString());
-                        medicamento.setUltimaToma(ds.child("Ultima Toma").getValue().toString());
-                        medicamento.setExistencia(ds.child("Existencia").getValue().toString());
-                        medicamentosList.add(medicamento);
-                        medicamentoAdapter.agregarMedicamento(medicamento);
+                        if(ds.child("Nombre").getValue()!=null){
+                            medicamento = new Medicamento();
+                            medicamento.setId(ds.getKey());
+                            medicamento.setNombre(ds.child("Nombre").getValue().toString());
+                            medicamento.setUnidad(ds.child("Unidad").getValue().toString());
+                            medicamento.setFechaInicio(ds.child("Fecha Inicio").getValue().toString());
+                            medicamento.setFechaFinal(ds.child("Fecha Final").getValue().toString());
+                            medicamento.setRecordar(ds.child("Recordar Cada").getValue().toString());
+                            medicamento.setPrimeraToma(ds.child("Primera Toma").getValue().toString());
+                            medicamento.setUltimaToma(ds.child("Ultima Toma").getValue().toString());
+                            medicamento.setExistencia(ds.child("Existencia").getValue().toString());
+                            medicamentosList.add(medicamento);
+                            medicamentoAdapter.agregarMedicamento(medicamento);
+                        }
                     }
                 }
 
