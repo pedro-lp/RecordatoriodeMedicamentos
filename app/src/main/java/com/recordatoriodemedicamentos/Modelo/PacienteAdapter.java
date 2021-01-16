@@ -82,7 +82,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
         }
         @Override
         public void onClick(View v) {
-            IPaciente.OpcionEliminar(paciente);
+            iPaciente.OpcionEliminar(paciente);
         }
     }
 
