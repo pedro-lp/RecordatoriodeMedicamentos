@@ -58,14 +58,15 @@ public class MedicamentoProvider {
         medicamentoAdapter.eliminarMedicamento(medicamento);
     }
 
+
     public void showMedicamento(String idUsuario, MedicamentoAdapter medicamentoAdapter, ArrayList arrayList) {
         mDatabase.child(idUsuario).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-
+                    //se crea una instancia de las notificaciones del sistema
+                    //CreateNotification iniciarNot = new CreateNotification();
                     arrayList.clear();
-                    //medicamentosList.clear();
                     Medicamento medicamento = null;
                     for (DataSnapshot ds : snapshot.getChildren()) {
                             medicamento = new Medicamento();
@@ -78,7 +79,7 @@ public class MedicamentoProvider {
                             medicamento.setPrimeraToma(ds.child("Primera Toma").getValue().toString());
                             medicamento.setUltimaToma(ds.child("Ultima Toma").getValue().toString());
                             medicamento.setExistencia(ds.child("Existencia").getValue().toString());
-                            medicamentosList.add(medicamento);
+//                            medicamentosList.add(medicamento);
                             medicamentoAdapter.agregarMedicamento(medicamento);
 
                     }
