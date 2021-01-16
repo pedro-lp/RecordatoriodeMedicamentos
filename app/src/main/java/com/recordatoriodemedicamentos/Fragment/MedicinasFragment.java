@@ -89,13 +89,13 @@ public class MedicinasFragment extends Fragment implements IMedicamento {
     public void OpcionEliminar(Medicamento medicamento) {
         AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
         alerta.setTitle("Mensaje de Advertencia");
-        alerta.setMessage("¿Esta seguro que desea Eliminar este Contacto?");
+        alerta.setMessage("¿Esta seguro que desea eliminar este medicamento?");
         alerta.setCancelable(false);
         alerta.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 mediProvider.removeMedicamento(authProvider.getId(), medicamento, medicamentoAdapter);
-                Toast.makeText(getContext(), "Se Elimino Correctamente el Medicamento", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Se eliminó correctamente el medicamento", Toast.LENGTH_SHORT).show();
             }
         });
         alerta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

@@ -90,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
                     Log.w(TAG, "Google sign in failed");
                 }
             } else {
-                Log.d(TAG, "Error, login no exitoso:" + task.getException().toString());
                 Toast.makeText(this, "No se seleccionó ninguna cuenta...", Toast.LENGTH_SHORT).show();
             }
         }

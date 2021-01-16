@@ -44,8 +44,8 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
         Paciente paciente = pacienteList.get(i);
         pacienteView.nombre.setText(paciente.getNombre());
         pacienteView.edad.setText(paciente.getEdad());
-        pacienteView.btnEditarPac.setOnClickListener(new eventoEditar(paciente));
-        pacienteView.btnEliminarPac.setOnClickListener(new eventoEliminar(paciente));
+        pacienteView.btnAdministrar.setOnClickListener(new eventoEditar(paciente));
+        pacienteView.btnEliminar.setOnClickListener(new eventoEliminar(paciente));
     }
 
     @Override
@@ -77,30 +77,25 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
 
     class eventoEliminar implements View.OnClickListener {
         private Paciente paciente;
-
         public eventoEliminar(Paciente paciente) {
             this.paciente = paciente;
         }
-
         @Override
         public void onClick(View v) {
             IPaciente.OpcionEliminar(paciente);
         }
     }
 
-    public class medicamentoView extends RecyclerView.ViewHolder {
-        private TextView nombre,unidad,duracion,recordar,priToma;
-        private Button btnEditarMed,btnEliminarMed;
+    public class pacienteView extends RecyclerView.ViewHolder {
+        private TextView nombre,edad;
+        private Button btnAdministrar,btnEliminar;
 
-        public medicamentoView(@NonNull View itemView) {
+        public pacienteView(@NonNull View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.txtNombreMed);
-            unidad = itemView.findViewById(R.id.txtUnidadMed);
-            duracion = itemView.findViewById(R.id.txtDuracionMed);
-            recordar = itemView.findViewById(R.id.txtRecordarMed);
-            priToma = itemView.findViewById(R.id.txtPriToma);
-            btnEditarMed = itemView.findViewById(R.id.btnEditarContacto);
-            btnEliminarMed = itemView.findViewById(R.id.btnEliminarContacto);
+            nombre = itemView.findViewById(R.id.txtNombre);
+            edad = itemView.findViewById(R.id.textEdad);
+            btnAdministrar = itemView.findViewById(R.id.btnAdministrar);
+            btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
     }
 }
