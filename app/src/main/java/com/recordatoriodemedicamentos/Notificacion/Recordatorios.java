@@ -101,8 +101,8 @@ public class Recordatorios extends AppCompatActivity {
 
                         for (int i = 0; i < MedicamentoProvider.medicamentosList.size(); i++) {
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getNombre(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getPriToma(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getDuracion(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getPrimeraToma(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getUltimaToma(), Toast.LENGTH_SHORT).show();
                             Utils.setAlarm(alarmID, fecha.get(i), Recordatorios.this);
                         }
                     }

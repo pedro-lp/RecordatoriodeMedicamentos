@@ -61,8 +61,8 @@ public class CreateNotification {
 
         for (int i = 0; i < MedicamentoProvider.medicamentosList.size(); i++) {
             Toast.makeText(context, MedicamentoProvider.medicamentosList.get(i).getNombre(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, MedicamentoProvider.medicamentosList.get(i).getPriToma(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, MedicamentoProvider.medicamentosList.get(i).getDuracion(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, MedicamentoProvider.medicamentosList.get(i).getPrimeraToma(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, MedicamentoProvider.medicamentosList.get(i).getUltimaToma(), Toast.LENGTH_SHORT).show();
             Utils.setAlarm(alarmID, fecha.get(i), context);
         }
     }
