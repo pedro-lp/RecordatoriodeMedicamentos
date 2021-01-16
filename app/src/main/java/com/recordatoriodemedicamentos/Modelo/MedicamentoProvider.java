@@ -29,9 +29,12 @@ public class MedicamentoProvider {
         Map<String, Object> map = new HashMap<>();
         map.put("Nombre", medicamento.getNombre());
         map.put("Unidad", medicamento.getUnidad());
-        map.put("Duración", medicamento.getDuracion());
+        map.put("Fecha Inicio", medicamento.getFechaInicio());
+        map.put("Fecha Final", medicamento.getFechaFinal());
         map.put("Recordar Cada", medicamento.getRecordar());
-        map.put("Primera Toma", medicamento.getPriToma());
+        map.put("Primera Toma", medicamento.getPrimeraToma());
+        map.put("Ultima Toma", medicamento.getUltimaToma());
+        map.put("Existencia", medicamento.getExistencia());
         return mDatabase.child(idUsuario).child(medicamento.getId()).setValue(map);
     }
 
@@ -39,9 +42,12 @@ public class MedicamentoProvider {
         Map<String, Object> map = new HashMap<>();
         map.put("Nombre", medicamento.getNombre());
         map.put("Unidad", medicamento.getUnidad());
-        map.put("Duración", medicamento.getDuracion());
+        map.put("Fecha Inicio", medicamento.getFechaInicio());
+        map.put("Fecha Final", medicamento.getFechaFinal());
         map.put("Recordar Cada", medicamento.getRecordar());
-        map.put("Primera Toma", medicamento.getPriToma());
+        map.put("Primera Toma", medicamento.getPrimeraToma());
+        map.put("Ultima Toma", medicamento.getUltimaToma());
+        map.put("Existencia", medicamento.getExistencia());
         return mDatabase.child(idUsuario).child(medicamento.getId()).setValue(map);
     }
 
@@ -64,9 +70,9 @@ public class MedicamentoProvider {
                         medicamento.setId(ds.getKey());
                         medicamento.setNombre(ds.child("Nombre").getValue().toString());
                         medicamento.setUnidad(ds.child("Unidad").getValue().toString());
-                        medicamento.setDuracion(ds.child("Duración").getValue().toString());
+                        medicamento.setFechaInicio(ds.child("Fecha Inicio").getValue().toString());
+                        medicamento.setFechaFinal(ds.child("Fecha Final").getValue().toString());
                         medicamento.setRecordar(ds.child("Recordar Cada").getValue().toString());
-                        medicamento.setPriToma(ds.child("Primera Toma").getValue().toString());
                         medicamentosList.add(medicamento);
                         medicamentoAdapter.agregarMedicamento(medicamento);
                     }

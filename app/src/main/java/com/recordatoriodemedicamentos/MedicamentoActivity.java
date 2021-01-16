@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class MedicamentoActivity extends AppCompatActivity implements ComboDialog.ComboListener {
-    EditText nombre, unidad, duracion, recordar, priToma;
+    EditText nombre, unidad, fechaInicio, fechaFinal, recordar,primeraToma,ultimoToma,existencia;
     AuthProvider authProvider;
     MedicamentoProvider mediProvider;
     Button btnAgregar;
@@ -57,9 +57,12 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
 
         nombre = (EditText) findViewById(R.id.edtNomMedicamento);
         unidad = (EditText) findViewById(R.id.edtUnidad);
-        duracion = (EditText) findViewById(R.id.edtDuracion);
+        fechaInicio = (EditText) findViewById(R.id.edtFechaInicio);
+        fechaFinal = (EditText) findViewById(R.id.edtFechaFinal);
         recordar = (EditText) findViewById(R.id.edtRecordar);
-        priToma = (EditText) findViewById(R.id.edtPriToma);
+        primeraToma = (EditText) findViewById(R.id.edtPrimeraToma);
+        ultimoToma = (EditText) findViewById(R.id.edtUltimaToma);
+        existencia = (EditText) findViewById(R.id.edtExistencia);
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -71,12 +74,12 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
             public void onClick(View v) {
                 DialogFragment comboDialog = new ComboDialog();
                 comboDialog.setCancelable(false);
-                comboDialog.show(getSupportFragmentManager(), "Single Choise Dialog");
+                comboDialog.show(getSupportFragmentManager(), "Unidad");
             }
         });
 
 
-        duracion.setOnClickListener(new View.OnClickListener() {
+        fechaInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -85,7 +88,23 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month + 1;
                         String date = year + "-" + twoDigits(month) + "-" + twoDigits(day);
-                        duracion.setText(date);
+                        fechaInicio.setText(date);
+                    }
+                }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
+        fechaFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        MedicamentoActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        month = month + 1;
+                        String date = year + "-" + twoDigits(month) + "-" + twoDigits(day);
+                        fechaFinal.setText(date);
                     }
                 }, year, month, day);
                 datePickerDialog.show();
@@ -95,38 +114,6 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
         recordar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        MedicamentoActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                Hour = hourOfDay;
-                                Minute = minute;
-
-                                String time = Hour + ":" + Minute;
-                                SimpleDateFormat f24Hour = new SimpleDateFormat("HH:mm");
-                                try {
-                                    Date date = f24Hour.parse(time);
-
-                                    SimpleDateFormat f12Hour = new SimpleDateFormat("hh:mm aa");
-
-                                    recordar.setText(f12Hour.format(date));
-                                } catch (ParseException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }, 12, 0, false
-                );
-                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                timePickerDialog.updateTime(Hour, Minute);
-                timePickerDialog.show();
-            }
-        });
-
-        priToma.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 NumberPicker numberPicker = new NumberPicker(MedicamentoActivity.this);
                 numberPicker.setMaxValue(12);
                 numberPicker.setMinValue(1);
@@ -134,7 +121,7 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
                 NumberPicker.OnValueChangeListener changeListener = new NumberPicker.OnValueChangeListener() {
                     @Override
                     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                        priToma.setText("" + newVal);
+                        recordar.setText("" + newVal);
 
                     }
                 };
@@ -158,6 +145,70 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
         });
 
 
+        primeraToma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        MedicamentoActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                Hour = hourOfDay;
+                                Minute = minute;
+
+                                String time = Hour + ":" + Minute;
+                                SimpleDateFormat f24Hour = new SimpleDateFormat("HH:mm");
+                                try {
+                                    Date date = f24Hour.parse(time);
+
+                                    SimpleDateFormat f12Hour = new SimpleDateFormat("hh:mm aa");
+
+                                    fechaInicio.setText(f12Hour.format(date));
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, 12, 0, false
+                );
+                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                timePickerDialog.updateTime(Hour, Minute);
+                timePickerDialog.show();
+            }
+        });
+
+        ultimoToma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        MedicamentoActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                Hour = hourOfDay;
+                                Minute = minute;
+
+                                String time = Hour + ":" + Minute;
+                                SimpleDateFormat f24Hour = new SimpleDateFormat("HH:mm");
+                                try {
+                                    Date date = f24Hour.parse(time);
+
+                                    SimpleDateFormat f12Hour = new SimpleDateFormat("hh:mm aa");
+
+                                    ultimoToma.setText(f12Hour.format(date));
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, 12, 0, false
+                );
+                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                timePickerDialog.updateTime(Hour, Minute);
+                timePickerDialog.show();
+            }
+        });
+
         String typeUser = preMed.getString("boton", "");
         if (typeUser.equals("agregar")) {
             getSupportActionBar().setTitle("Añadir medicamento");
@@ -178,9 +229,12 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
         idMedMod = String.valueOf(medicamento.getId());
         nombre.setText(medicamento.getNombre());
         unidad.setText(medicamento.getUnidad());
-        duracion.setText(medicamento.getDuracion());
+        fechaInicio.setText(medicamento.getFechaInicio());
+        fechaFinal.setText(medicamento.getFechaFinal());
         recordar.setText(medicamento.getRecordar());
-        priToma.setText(medicamento.getPriToma());
+        primeraToma.setText(medicamento.getPrimeraToma());
+        ultimoToma.setText(medicamento.getUltimaToma());
+        existencia.setText(medicamento.getPrimeraToma());
     }
 
     public void onClick(View view) {
@@ -197,13 +251,16 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
     public void AgregarMedicamento() {
         final String Nombre = nombre.getText().toString();
         final String Unidad = unidad.getText().toString();
-        final String Duracion = duracion.getText().toString();
+        final String FechaInicio = fechaInicio.getText().toString();
+        final String FechaFinal = fechaFinal.getText().toString();
         final String Recordar = recordar.getText().toString();
-        final String PriToma = priToma.getText().toString();
+        final String PrimeraToma = primeraToma.getText().toString();
+        final String UltimaToma = ultimoToma.getText().toString();
+        final String Existencia = existencia.getText().toString();
 
-        if (!Nombre.isEmpty() && !Unidad.isEmpty() && !Duracion.isEmpty() && !Recordar.isEmpty() && !PriToma.isEmpty()) {
+        if (!Nombre.isEmpty() && !Unidad.isEmpty() && !FechaInicio.isEmpty() && !FechaFinal.isEmpty() && !Recordar.isEmpty() && !PrimeraToma.isEmpty() && !UltimaToma.isEmpty() && !Existencia.isEmpty()) {
             String idMedAgr = UUID.randomUUID().toString();
-            Medicamento mAgr = new Medicamento(idMedAgr, Nombre, Unidad, Duracion, Recordar, PriToma);
+            Medicamento mAgr = new Medicamento(idMedAgr, Nombre, Unidad, FechaInicio, FechaFinal, Recordar, PrimeraToma, UltimaToma, Existencia);
             mediProvider.createMedicamento(authProvider.getId(), mAgr);
             finish();
         } else {
@@ -214,12 +271,15 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
     public void modificarMedicamento() {
         final String Nombre = nombre.getText().toString();
         final String Unidad = unidad.getText().toString();
-        final String Duracion = duracion.getText().toString();
+        final String FechaInicio = fechaInicio.getText().toString();
+        final String FechaFinal = fechaFinal.getText().toString();
         final String Recordar = recordar.getText().toString();
-        final String PriToma = priToma.getText().toString();
+        final String PrimeraToma = primeraToma.getText().toString();
+        final String UltimaToma = ultimoToma.getText().toString();
+        final String Existencia = existencia.getText().toString();
 
-        if (!Nombre.isEmpty() && !Unidad.isEmpty() && !Duracion.isEmpty() && !Recordar.isEmpty() && !PriToma.isEmpty()) {
-            Medicamento mMod = new Medicamento(idMedMod, Nombre, Unidad, Duracion, Recordar, PriToma);
+        if (!Nombre.isEmpty() && !Unidad.isEmpty() && !FechaInicio.isEmpty() && !FechaFinal.isEmpty() && !Recordar.isEmpty() && !PrimeraToma.isEmpty() && !UltimaToma.isEmpty() && !Existencia.isEmpty()) {
+            Medicamento mMod = new Medicamento(idMedMod, Nombre, Unidad, FechaInicio, FechaFinal, Recordar, PrimeraToma, UltimaToma, Existencia);
             mediProvider.changeMedicamento(authProvider.getId(), mMod);
             finish();
         } else {
@@ -235,7 +295,6 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
 
     @Override
     public void onNegativeButtonClicked() {
-        unidad.setText("Dialog Cancel");
-
+        unidad.setText("");
     }
 }

@@ -7,21 +7,28 @@ public class Medicamento implements Serializable {
     String id;
     String nombre;
     String unidad;
-    String duracion;
-    String recordar;
-    String priToma;
+    String FechaInicio;
+    String FechaFinal;
+    String Recordar;
+    String PrimeraToma;
+    String UltimaToma;
+    String Existencia;
 
     public Medicamento() {
     }
 
-    public Medicamento(String id, String nombre, String unidad, String duracion, String recordar, String priToma) {
+    public Medicamento(String id, String nombre, String unidad, String fechaInicio, String fechaFinal, String recordar, String primeraToma, String ultimaToma, String existencia) {
         this.id = id;
         this.nombre = nombre;
         this.unidad = unidad;
-        this.duracion = duracion;
-        this.recordar = recordar;
-        this.priToma = priToma;
+        FechaInicio = fechaInicio;
+        FechaFinal = fechaFinal;
+        Recordar = recordar;
+        PrimeraToma = primeraToma;
+        UltimaToma = ultimaToma;
+        Existencia = existencia;
     }
+
 
     public String getId() {
         return id;
@@ -47,27 +54,51 @@ public class Medicamento implements Serializable {
         this.unidad = unidad;
     }
 
-    public String getDuracion() {
-        return duracion;
+    public String getFechaInicio() {
+        return FechaInicio;
     }
 
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
+    public void setFechaInicio(String fechaInicio) {
+        FechaInicio = fechaInicio;
+    }
+
+    public String getFechaFinal() {
+        return FechaFinal;
+    }
+
+    public void setFechaFinal(String fechaFinal) {
+        FechaFinal = fechaFinal;
     }
 
     public String getRecordar() {
-        return recordar;
+        return Recordar;
     }
 
     public void setRecordar(String recordar) {
-        this.recordar = recordar;
+        Recordar = recordar;
     }
 
-    public String getPriToma() {
-        return priToma;
+    public String getPrimeraToma() {
+        return PrimeraToma;
     }
 
-    public void setPriToma(String priToma) {
-        this.priToma = priToma;
+    public void setPrimeraToma(String primeraToma) {
+        PrimeraToma = primeraToma;
+    }
+
+    public String getUltimaToma() {
+        return UltimaToma;
+    }
+
+    public void setUltimaToma(String ultimaToma) {
+        UltimaToma = ultimaToma;
+    }
+
+    public String getExistencia() {
+        return Existencia;
+    }
+
+    public void setExistencia(String existencia) {
+        Existencia = existencia;
     }
 }
