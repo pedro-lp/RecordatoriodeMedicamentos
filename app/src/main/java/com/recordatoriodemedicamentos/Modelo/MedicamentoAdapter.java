@@ -44,9 +44,9 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
         Medicamento medicamento = medicamentoList.get(i);
         medicamentoView.nombre.setText(medicamento.getNombre());
         medicamentoView.unidad.setText(medicamento.getUnidad());
-        medicamentoView.duracion.setText(medicamento.getDuracion());
-        medicamentoView.recordar.setText(medicamento.getRecordar());
-        medicamentoView.priToma.setText(medicamento.getPriToma());
+        medicamentoView.duracion.setText(medicamento.getFechaInicio());
+        medicamentoView.recordar.setText(medicamento.getFechaFinal());
+        medicamentoView.priToma.setText(medicamento.getExistencia());
         medicamentoView.btnEditarMed.setOnClickListener(new eventoEditar(medicamento));
         medicamentoView.btnEliminarMed.setOnClickListener(new eventoEliminar(medicamento));
     }

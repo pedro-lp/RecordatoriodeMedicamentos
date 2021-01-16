@@ -38,12 +38,15 @@
     <string name="edtRecordar">Recordar Cada:</string>
     <string name="edtPriToma">Primera Toma:</string>
     <string-array name="items_unidad">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
+        <item>cápsula(s)</item>
+        <item>gota(s)</item>
+        <item>gramo(s)</item>
+        <item>inhalación(es)</item>
+        <item>intección(es)</item>
+        <item>unidad(es)</item>
+        <item>ampolla(s)</item>
+        <item>cucharadas(s)</item>
+        <item>aplicacione(s)</item>
+        <item>aerosol(es)</item>
     </string-array>
 </resources>

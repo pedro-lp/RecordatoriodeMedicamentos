@@ -37,8 +37,8 @@ public class PacienteProvider {
 
     public void removePaciente(String idUsuario,Paciente paciente,PacienteAdapter pacienteAdapter) {
         String idPaciente = String.valueOf(paciente.getId());
-        mDatabase.child(idPaciente).child(idPaciente).removeValue();
-        pacienteAdapter .eliminarPaciente(paciente);
+        mDatabase.child(idUsuario).child(idPaciente).removeValue();
+        pacienteAdapter.eliminarPaciente(paciente);
     }
 
 
