@@ -17,6 +17,8 @@ import com.recordatoriodemedicamentos.Modelo.PacienteProvider;
 
 import java.util.UUID;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class PacienteActivity extends AppCompatActivity {
     EditText nombre, edad;
     AuthProvider authProvider;
@@ -24,6 +26,7 @@ public class PacienteActivity extends AppCompatActivity {
     Button btnAgregar;
     private Paciente paciente;
     String idPacMod;
+    private CircleImageView mCircleImageBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,14 @@ public class PacienteActivity extends AppCompatActivity {
 
         nombre = (EditText) findViewById(R.id.textNombrePaciente);
         edad = (EditText) findViewById(R.id.textEdad);
+        mCircleImageBack = findViewById(R.id.circleImageBack);
+
+        mCircleImageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
