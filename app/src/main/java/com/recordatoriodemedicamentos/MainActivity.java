@@ -45,6 +45,28 @@ public class MainActivity extends AppCompatActivity {
                 IniciarSesion();
             }
         });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 1; i <= 10; i++) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Se crea instancia de la clase create notification
+                        Toast.makeText(getBaseContext(), "Tarea Larga Finalizada", Toast.LENGTH_LONG).show();
+                        CreateNotification notif = new CreateNotification(getBaseContext());
+                    }
+                });
+
+            }
+        }).start();
+
     }
 
     @Override

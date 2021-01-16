@@ -14,6 +14,7 @@ import com.recordatoriodemedicamentos.Fragment.DoctoresFragment;
 import com.recordatoriodemedicamentos.Fragment.MedicinasFragment;
 import com.recordatoriodemedicamentos.Fragment.PacientesFragment;
 import com.recordatoriodemedicamentos.Modelo.AuthProvider;
+import com.recordatoriodemedicamentos.Notificacion.CreateNotification;
 import com.recordatoriodemedicamentos.Notificacion.Recordatorios;
 
 public class PrincipalActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new MedicinasFragment()).commit();
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

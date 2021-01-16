@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.recordatoriodemedicamentos.Modelo.MedicamentoProvider;
 import com.recordatoriodemedicamentos.R;
 
@@ -52,8 +54,7 @@ public class CreateNotification {
         //SAVE ALARM TIME TO USE IT IN CASE OF REBOOT
         //guarda la notificacion en caso de reiniciarse
 
-        Toast.makeText(context, (finalHour + ":" + finalMinute), Toast.LENGTH_SHORT).show();
-        Toast.makeText(context, "El tamaño de los medicamentos es"+MedicamentoProvider.medicamentosList.size(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "El tamaño es"+MedicamentoProvider.medicamentosList.size(), Toast.LENGTH_SHORT).show();
 
         //Utils.setAlarm(alarmID, today.getTimeInMillis(), Recordatorios.this);
         //crea la alarma

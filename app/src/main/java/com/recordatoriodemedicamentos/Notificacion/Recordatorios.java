@@ -34,10 +34,8 @@ public class Recordatorios extends AppCompatActivity {
 
         //se crean las configuraciones de la notificacion
         settings = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
-        String hour, minute;
-        //se
-        hour = settings.getString("hour", "");
-        minute = settings.getString("minute", "");
+        String hour = settings.getString("hour", "");
+        String minute = settings.getString("minute", "");
         notificationsTime = (TextView) findViewById(R.id.notifications_time);
 
         if (hour.length() > 0) {
@@ -131,7 +129,6 @@ public class Recordatorios extends AppCompatActivity {
                     Toast.makeText(Recordatorios.this, "Se desactivo la alarma", Toast.LENGTH_LONG).show();
 
                     if (ultimoDia.before(hoy)) {
-                        Toast.makeText(Recordatorios.this, "la fecha de este medicamento ya vencio;" + ultimoDia, Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(Recordatorios.this, "El ultimo dia de tomar el medicamento es;" + ultimoDia, Toast.LENGTH_LONG).show();
                         Utils.setAlarm(alarmID, System.currentTimeMillis() + (5 * 60 * 1000), Recordatorios.this);
