@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_alumnos"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="200dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
@@ -16,7 +16,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="176dp">
+        android:layout_height="200dp">
 
         <TextView
             android:id="@+id/txtNombreMed"
@@ -28,15 +28,16 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:gravity="left"
-            android:text="TextView"
             android:maxLines="1"
+            android:text="TextView"
+            android:textStyle="bold"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtPriToma"
+            android:id="@+id/txtRecordar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -44,13 +45,13 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="TextView"
             android:maxLines="1"
+            android:text="TextView"
             android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/txtRecordarMed" />
+            app:layout_constraintTop_toBottomOf="@+id/txtFechaFinal" />
 
         <TextView
             android:id="@+id/txtUnidadMed"
@@ -61,15 +62,16 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:text="TextView"
             android:maxLines="1"
+            android:text="TextView"
             android:textColor="#000000"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/txtNombreMed" />
 
         <TextView
-            android:id="@+id/txtRecordarMed"
+            android:id="@+id/txtFechaFinal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -78,15 +80,16 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:gravity="left"
-            android:text="TextView"
             android:maxLines="1"
+            android:text="TextView"
+            android:textStyle="bold"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/txtDuracionMed" />
+            app:layout_constraintTop_toBottomOf="@+id/txtFechaInicio" />
 
         <TextView
-            android:id="@+id/txtDuracionMed"
+            android:id="@+id/txtFechaInicio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -94,9 +97,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:text="TextView"
             android:maxLines="1"
+            android:text="TextView"
             android:textColor="#000000"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/txtUnidadMed" />
@@ -109,31 +113,34 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#0D85F2"
-            app:cornerRadius="30dp"
             android:text="Modificar"
             android:textColor="#FDFCFC"
             android:textStyle="bold"
+            app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPriToma" />
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <Button
             android:id="@+id/btnEliminarContacto"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#F01010"
-            app:cornerRadius="30dp"
             android:text="Eliminar"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
+            app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/txtPriToma" />
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:layout_constraintVertical_bias="0.533" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
@@ -141,10 +148,8 @@
             android:layout_height="80dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="105dp"
+            android:layout_marginTop="8dp"
             app:cardCornerRadius="42dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -198,7 +203,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/card"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:text="@string/edtDuracion" />
+            tools:text="Fecha Inicio:" />
 
         <TextView
             android:id="@+id/textView4"
@@ -212,7 +217,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
-            tools:text="@string/edtPriToma" />
+            tools:text="Recordar Cada:" />
 
         <TextView
             android:id="@+id/textView6"
@@ -227,7 +232,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/card"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:text="@string/edtRecordar" />
+            tools:text="Fecha Final:" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -235,6 +240,97 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.50121653" />
+
+        <TextView
+            android:id="@+id/txtUltima"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/txtRecordar" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Ultima Toma:"
+            android:textColor="#FC6C1C"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Primera Toma:"
+            android:textColor="#FC6C1C"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/txtFechaFinal" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Existencia:"
+            android:textColor="#FC6C1C"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/txtPrimera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/txtFechaFinal" />
+
+        <TextView
+            android:id="@+id/txtEsistencia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/txtPrimera" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
