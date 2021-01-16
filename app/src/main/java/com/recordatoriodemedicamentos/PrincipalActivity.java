@@ -13,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.recordatoriodemedicamentos.Fragment.DoctoresFragment;
 import com.recordatoriodemedicamentos.Fragment.MedicinasFragment;
 import com.recordatoriodemedicamentos.Fragment.PacientesFragment;
-import com.recordatoriodemedicamentos.Fragment.PrincipalFragment;
 import com.recordatoriodemedicamentos.Modelo.AuthProvider;
 import com.recordatoriodemedicamentos.Notificacion.Recordatorios;
 
@@ -33,7 +32,7 @@ public class PrincipalActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new PrincipalFragment()).commit();
+                new MedicinasFragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -43,9 +42,6 @@ public class PrincipalActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
 
                     switch (item.getItemId()){
-                        case R.id.nav_principal:
-                            selectedFragment = new PrincipalFragment();
-                            break;
                         case R.id.nav_pacientes:
                             selectedFragment = new PacientesFragment();
                             break;

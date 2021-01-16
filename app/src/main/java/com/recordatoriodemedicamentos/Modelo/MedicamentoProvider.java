@@ -73,6 +73,9 @@ public class MedicamentoProvider {
                         medicamento.setFechaInicio(ds.child("Fecha Inicio").getValue().toString());
                         medicamento.setFechaFinal(ds.child("Fecha Final").getValue().toString());
                         medicamento.setRecordar(ds.child("Recordar Cada").getValue().toString());
+                        medicamento.setPrimeraToma(ds.child("Primera Toma").getValue().toString());
+                        medicamento.setUltimaToma(ds.child("Ultima Toma").getValue().toString());
+                        medicamento.setExistencia(ds.child("Existencia").getValue().toString());
                         medicamentosList.add(medicamento);
                         medicamentoAdapter.agregarMedicamento(medicamento);
                     }
