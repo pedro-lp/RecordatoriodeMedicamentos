@@ -23,6 +23,8 @@ import com.recordatoriodemedicamentos.Modelo.IMedicamento;
 import com.recordatoriodemedicamentos.Modelo.Medicamento;
 import com.recordatoriodemedicamentos.Modelo.MedicamentoAdapter;
 import com.recordatoriodemedicamentos.Modelo.MedicamentoProvider;
+import com.recordatoriodemedicamentos.Notificacion.CreateNotification;
+import com.recordatoriodemedicamentos.Notificacion.Recordatorios;
 import com.recordatoriodemedicamentos.R;
 
 import java.util.ArrayList;
@@ -71,7 +73,6 @@ public class MedicinasFragment extends Fragment implements IMedicamento {
                 startActivity(intent);
             }
         });
-
         return vista;
     }
 

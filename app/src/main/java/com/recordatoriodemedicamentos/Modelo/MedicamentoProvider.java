@@ -79,10 +79,12 @@ public class MedicamentoProvider {
                             medicamento.setPrimeraToma(ds.child("Primera Toma").getValue().toString());
                             medicamento.setUltimaToma(ds.child("Ultima Toma").getValue().toString());
                             medicamento.setExistencia(ds.child("Existencia").getValue().toString());
-//                          medicamentosList.add(medicamento);
+//                            medicamentosList.add(medicamento);
                             medicamentoAdapter.agregarMedicamento(medicamento);
+
                     }
                 }
+
             }
 
             @Override
