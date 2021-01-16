@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,9 +42,11 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
         Medicamento medicamento = medicamentoList.get(i);
         medicamentoView.nombre.setText(medicamento.getNombre());
         medicamentoView.unidad.setText(medicamento.getUnidad());
-        medicamentoView.duracion.setText(medicamento.getFechaInicio());
-        medicamentoView.recordar.setText(medicamento.getFechaFinal());
-        medicamentoView.priToma.setText(medicamento.getExistencia());
+        medicamentoView.fechaInicio.setText(medicamento.getFechaInicio());
+        medicamentoView.fechaFinal.setText(medicamento.getFechaFinal());
+        medicamentoView.priToma.setText(medicamento.getPrimeraToma());
+        medicamentoView.ultToma.setText(medicamento.getUltimaToma());
+        medicamentoView.existencia.setText(medicamento.getExistencia());
         medicamentoView.btnEditarMed.setOnClickListener(new eventoEditar(medicamento));
         medicamentoView.btnEliminarMed.setOnClickListener(new eventoEliminar(medicamento));
     }
@@ -94,16 +94,19 @@ public class MedicamentoAdapter extends RecyclerView.Adapter<MedicamentoAdapter.
     }
 
     public class medicamentoView extends RecyclerView.ViewHolder {
-        private TextView nombre, unidad, duracion, recordar, priToma;
+        private TextView nombre, unidad, fechaInicio, fechaFinal, recordar,priToma,ultToma, existencia;
         private Button btnEditarMed, btnEliminarMed;
 
         public medicamentoView(@NonNull View itemView) {
             super(itemView);
             nombre = itemView.findViewById(R.id.txtNombreMed);
             unidad = itemView.findViewById(R.id.txtUnidadMed);
-            duracion = itemView.findViewById(R.id.txtDuracionMed);
-            recordar = itemView.findViewById(R.id.txtRecordarMed);
-            priToma = itemView.findViewById(R.id.txtPriToma);
+            fechaInicio = itemView.findViewById(R.id.txtFechaInicio);
+            fechaFinal = itemView.findViewById(R.id.txtFechaFinal);
+            recordar = itemView.findViewById(R.id.txtRecordar);
+            priToma = itemView.findViewById(R.id.txtPrimera);
+            ultToma = itemView.findViewById(R.id.txtUltima);
+            existencia = itemView.findViewById(R.id.txtEsistencia);
             btnEditarMed = itemView.findViewById(R.id.btnEditarContacto);
             btnEliminarMed = itemView.findViewById(R.id.btnEliminarContacto);
         }
