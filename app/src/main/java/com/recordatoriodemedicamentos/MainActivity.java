@@ -51,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            //se crea una instancia de las notificaciones del sistema
-            CreateNotification iniciarNot = new CreateNotification(this);
+
             Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
