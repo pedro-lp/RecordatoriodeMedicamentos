@@ -31,7 +31,8 @@ public class Recordatorios extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recordatorios);
-/*
+
+
         //se crean las configuraciones de la notificacion
         settings = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
         String hour = settings.getString("hour", "");
@@ -41,6 +42,7 @@ public class Recordatorios extends AppCompatActivity {
         if (hour.length() > 0) {
             notificationsTime.setText(hour + ":" + minute);
         }
+
         //accion que se realiza al hacer clic en el picker
         findViewById(R.id.change_notification).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,8 +55,13 @@ public class Recordatorios extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         String finalHour, finalMinute;
-                        selectedHour = 13;
-                        selectedMinute = 00;
+
+                        String primerHora = MedicamentoProvider.medicamentosList.get(0).getPrimeraToma();
+                        String[] parts = primerHora.split(" ");
+                        String uno = parts[0]; // 123
+                        String[] parties = uno.split(":");
+                        selectedHour = Integer.parseInt(parties[0]); // 123
+                        selectedMinute = Integer.parseInt(parties[1]); // 654321
 
                         finalHour = "" + selectedHour;
                         finalMinute = "" + selectedMinute;
@@ -70,8 +77,8 @@ public class Recordatorios extends AppCompatActivity {
 
                         ArrayList<Long> fecha = new ArrayList<>();
                         for (int i = 0; i < MedicamentoProvider.medicamentosList.size(); i++) {
-                            today.set(Calendar.HOUR_OF_DAY, 17);
-                            today.set(Calendar.MINUTE, 31+(i*2));
+                            today.set(Calendar.HOUR_OF_DAY, selectedHour);
+                            today.set(Calendar.MINUTE, selectedMinute);
                             today.set(Calendar.SECOND, 0);
                             fecha.add(today.getTimeInMillis());
                         }
@@ -91,7 +98,7 @@ public class Recordatorios extends AppCompatActivity {
 
                         edit.commit();
 
-                        Toast.makeText(Recordatorios.this, getString(R.string.changed_to, finalHour + ":" + finalMinute), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(Recordatorios.this, getString(R.string.changed_to, finalHour + ":" + finalMinute), Toast.LENGTH_LONG).show();
 
                         //Utils.setAlarm(alarmID, today.getTimeInMillis(), Recordatorios.this);
                         //crea la alarma
@@ -99,8 +106,7 @@ public class Recordatorios extends AppCompatActivity {
 
                         for (int i = 0; i < MedicamentoProvider.medicamentosList.size(); i++) {
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getNombre(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getPrimeraToma(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getUltimaToma(), Toast.LENGTH_SHORT).show();
+
                             Utils.setAlarm(alarmID, fecha.get(i), Recordatorios.this);
                         }
                     }
@@ -109,30 +115,26 @@ public class Recordatorios extends AppCompatActivity {
                 mTimePicker.show();
 
             }
-        });*/
+        });
 
         //accion que realizar el boton detener la notificacion
         findViewById(R.id.stop_notification).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(Recordatorios.this, "Se desactivo la alarma", Toast.LENGTH_LONG).show();
                 NotificationService.mp.stop();
                 try {
                     //AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
                     //long updateInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
                     CharSequence hoy1 = DateFormat.format("yyyy-MM-dd", new Date().getTime());
-                    Toast.makeText(Recordatorios.this, "Hoy es;" + hoy1, Toast.LENGTH_LONG).show();
                     CharSequence ultimoDia1 = ("2021-01-15");
 
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                     Date hoy = dateFormat.parse(hoy1.toString());
                     Date ultimoDia = dateFormat.parse(ultimoDia1.toString());
 
-                    Toast.makeText(Recordatorios.this, "Se desactivo la alarma", Toast.LENGTH_LONG).show();
-
-                    if (ultimoDia.before(hoy)) {
-                    } else {
-                        Toast.makeText(Recordatorios.this, "El ultimo dia de tomar el medicamento es;" + ultimoDia, Toast.LENGTH_LONG).show();
-                        Utils.setAlarm(alarmID, System.currentTimeMillis() + (5 * 60 * 1000), getBaseContext());
+                    if (hoy.before(ultimoDia)) {
+                        Utils.setAlarm(alarmID, System.currentTimeMillis() + (2* 60 * 1000), Recordatorios.this);
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();

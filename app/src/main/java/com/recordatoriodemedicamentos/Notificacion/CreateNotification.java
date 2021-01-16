@@ -38,11 +38,11 @@ public class CreateNotification {
             Toast.makeText(context,"Minutos "+selectedMinute, Toast.LENGTH_SHORT).show();
             Toast.makeText(context, "Hora "+selectedHour, Toast.LENGTH_SHORT).show();
             Toast.makeText(context, MedicamentoProvider.medicamentosList.get(0).getUltimaToma(), Toast.LENGTH_SHORT).show();
-            ArrayList<Long> fecha = new ArrayList<>();
+            //ArrayList<Long> fecha = new ArrayList<>();
             today.set(Calendar.HOUR_OF_DAY, Integer.parseInt(selectedHour));
             today.set(Calendar.MINUTE, Integer.parseInt(selectedMinute));
             today.set(Calendar.SECOND, 0);
-            fecha.add(today.getTimeInMillis());
+            //fecha.add(today.getTimeInMillis());
             Utils.setAlarm(alarmID, today.getTimeInMillis(), context);
 
         }
