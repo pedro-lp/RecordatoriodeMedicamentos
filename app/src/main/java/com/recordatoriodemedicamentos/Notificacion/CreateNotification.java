@@ -22,7 +22,7 @@ public class CreateNotification {
     private int alarmID = 1;
 
     public CreateNotification(Context context) {
-        Toast.makeText(context, "El tamaño es; " + MedicamentoProvider.medicamentosList.size(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "El tamaño es; " + MedicamentoProvider.medicamentosList.size(), Toast.LENGTH_SHORT).show();
 
         if (MedicamentoProvider.medicamentosList.size() > 0) {
             String primerHora = MedicamentoProvider.medicamentosList.get(0).getPrimeraToma();
@@ -35,9 +35,9 @@ public class CreateNotification {
             Calendar today = Calendar.getInstance();
             //today.set(Calendar.HOUR_OF_DAY, selectedHour);
             //today.set(Calendar.MINUTE, selectedMinute);
-            Toast.makeText(context,"Minutos "+selectedMinute, Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, "Hora "+selectedHour, Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, MedicamentoProvider.medicamentosList.get(0).getUltimaToma(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"Minutos "+selectedMinute, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Hora "+selectedHour, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, MedicamentoProvider.medicamentosList.get(0).getUltimaToma(), Toast.LENGTH_SHORT).show();
             //ArrayList<Long> fecha = new ArrayList<>();
             today.set(Calendar.HOUR_OF_DAY, Integer.parseInt(selectedHour));
             today.set(Calendar.MINUTE, Integer.parseInt(selectedMinute));
