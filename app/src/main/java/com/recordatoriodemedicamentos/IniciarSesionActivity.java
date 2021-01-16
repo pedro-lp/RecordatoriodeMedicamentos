@@ -103,7 +103,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                     }
                                 });
                             } else if (typeUser.equals("paciente")) {
-                                mDatabase.child("Usuarios").child("Paciente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                mDatabase.child("Paciente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         if (dataSnapshot.exists()) {
