@@ -25,6 +25,7 @@ public class Recordatorios extends AppCompatActivity {
     private TextView notificationsTime;
     private int alarmID = 1;
     private SharedPreferences settings;
+    //public static Context this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,25 +67,16 @@ public class Recordatorios extends AppCompatActivity {
 
                         Calendar today = Calendar.getInstance();
 
-                        today.set(Calendar.HOUR_OF_DAY, selectedHour);
-                        today.set(Calendar.MINUTE, selectedMinute);
+                        //today.set(Calendar.HOUR_OF_DAY, selectedHour);
+                        //today.set(Calendar.MINUTE, selectedMinute);
 
                         ArrayList<Long> fecha = new ArrayList<>();
-                        today.set(Calendar.HOUR_OF_DAY, 17);
-                        today.set(Calendar.MINUTE, 31);
-                        today.set(Calendar.SECOND, 0);
-                        fecha.add(today.getTimeInMillis());
-
-                        today.set(Calendar.HOUR_OF_DAY, 17);
-                        today.set(Calendar.MINUTE, 32);
-                        today.set(Calendar.SECOND, 0);
-
-                        fecha.add(today.getTimeInMillis());
-                        today.set(Calendar.HOUR_OF_DAY, 17);
-                        today.set(Calendar.MINUTE, 33);
-                        today.set(Calendar.SECOND, 0);
-                        fecha.add(today.getTimeInMillis());
-
+                        for (int i = 0; i < MedicamentoProvider.medicamentosList.size(); i++) {
+                            today.set(Calendar.HOUR_OF_DAY, 17);
+                            today.set(Calendar.MINUTE, 31+(i*2));
+                            today.set(Calendar.SECOND, 0);
+                            fecha.add(today.getTimeInMillis());
+                        }
 
                         //se asigna la hora
                         SharedPreferences.Editor edit = settings.edit();
@@ -103,7 +95,7 @@ public class Recordatorios extends AppCompatActivity {
 
                         Toast.makeText(Recordatorios.this, getString(R.string.changed_to, finalHour + ":" + finalMinute), Toast.LENGTH_LONG).show();
 
-                        Utils.setAlarm(alarmID, today.getTimeInMillis(), Recordatorios.this);
+                        //Utils.setAlarm(alarmID, today.getTimeInMillis(), Recordatorios.this);
                         //crea la alarma
                         //Utils.setAlarm(alarmID, today.getTimeInMillis(), Recordatorios.this);
 
@@ -111,7 +103,7 @@ public class Recordatorios extends AppCompatActivity {
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getNombre(), Toast.LENGTH_SHORT).show();
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getPriToma(), Toast.LENGTH_SHORT).show();
                             Toast.makeText(Recordatorios.this, MedicamentoProvider.medicamentosList.get(i).getDuracion(), Toast.LENGTH_SHORT).show();
-                            Utils.setAlarm(i, fecha.get(i), Recordatorios.this);
+                            Utils.setAlarm(alarmID, fecha.get(i), Recordatorios.this);
                         }
                     }
                 }, hour, minute, true);//Yes 24 hour time
