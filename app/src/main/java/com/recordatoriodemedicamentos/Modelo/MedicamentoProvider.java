@@ -65,6 +65,7 @@ public class MedicamentoProvider {
                 if (snapshot.exists()) {
 
                     arrayList.clear();
+                    //medicamentosList.clear();
                     Medicamento medicamento = null;
                     for (DataSnapshot ds : snapshot.getChildren()) {
                             medicamento = new Medicamento();

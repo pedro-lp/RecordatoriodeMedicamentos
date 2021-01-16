@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         //Se crea instancia de la clase create notification
-                        Toast.makeText(getBaseContext(), "Tarea Larga Finalizada", Toast.LENGTH_LONG).show();
                         CreateNotification notif = new CreateNotification(getBaseContext());
                     }
                 });

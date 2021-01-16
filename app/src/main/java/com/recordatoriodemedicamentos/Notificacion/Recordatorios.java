@@ -31,7 +31,7 @@ public class Recordatorios extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recordatorios);
-
+/*
         //se crean las configuraciones de la notificacion
         settings = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
         String hour = settings.getString("hour", "");
@@ -109,7 +109,8 @@ public class Recordatorios extends AppCompatActivity {
                 mTimePicker.show();
 
             }
-        });
+        });*/
+
         //accion que realizar el boton detener la notificacion
         findViewById(R.id.stop_notification).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +132,7 @@ public class Recordatorios extends AppCompatActivity {
                     if (ultimoDia.before(hoy)) {
                     } else {
                         Toast.makeText(Recordatorios.this, "El ultimo dia de tomar el medicamento es;" + ultimoDia, Toast.LENGTH_LONG).show();
-                        Utils.setAlarm(alarmID, System.currentTimeMillis() + (5 * 60 * 1000), Recordatorios.this);
+                        Utils.setAlarm(alarmID, System.currentTimeMillis() + (5 * 60 * 1000), getBaseContext());
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
