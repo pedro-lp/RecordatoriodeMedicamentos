@@ -135,7 +135,7 @@ public class Recordatorios extends AppCompatActivity {
                     Date hoy = dateFormat.parse(hoy1.toString());
                     Date ultimoDia = dateFormat.parse(ultimoDia1.toString());
 
-                    if (hoy.before(ultimoDia)||hoy.equals(ultimoDia)) {
+                    if (hoy.before(ultimoDia) || hoy.equals(ultimoDia)) {
                         sigAlarma(Recordatorios.this);
 
                         //int horaRep = Integer.parseInt(MedicamentoProvider.medicamentosList.get(0).getRecordar());
@@ -149,7 +149,8 @@ public class Recordatorios extends AppCompatActivity {
             }
         });
     }
-    public static void sigAlarma(Context context){
+
+    public static void sigAlarma(Context context) {
         int alarmID = 1;
         int horaRep = Integer.parseInt(MedicamentoProvider.medicamentosList.get(0).getRecordar());
         Long nvaHora = System.currentTimeMillis() + (horaRep * 60 * 60 * 1000);
@@ -159,7 +160,7 @@ public class Recordatorios extends AppCompatActivity {
         Date resultdate = new Date(nvaHora);
 
 
-        Toast.makeText(context, "Proxima alarma; "+resultdate, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Proxima alarma; " + resultdate, Toast.LENGTH_LONG).show();
         //se cambia (horaRep * 60 * 60 * 1000)
     }
 }

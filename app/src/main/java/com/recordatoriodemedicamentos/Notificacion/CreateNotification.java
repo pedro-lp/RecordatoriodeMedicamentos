@@ -34,10 +34,10 @@ public class CreateNotification {
             String selectedHour = parties[0]; // 123
             String selectedMinute = parties[1]; // 654321
             Date d = new Date();
-            if(Integer.parseInt(selectedHour) < d.getHours()){
+            if (Integer.parseInt(selectedHour) < d.getHours()) {
                 Recordatorios.sigAlarma(context);
-            }else{
-                Toast.makeText(context, "Primer alarma a las :"+d.getHours(), Toast.LENGTH_SHORT).show();
+            } else {
+                //Toast.makeText(context, "Primer alarma a las :" + d.getHours(), Toast.LENGTH_SHORT).show();
                 Calendar today = Calendar.getInstance();
                 //today.set(Calendar.HOUR_OF_DAY, selectedHour);
                 //today.set(Calendar.MINUTE, selectedMinute);
