@@ -156,10 +156,7 @@ public class Recordatorios extends AppCompatActivity {
         Long nvaHora = System.currentTimeMillis() + (horaRep * 60 * 60 * 1000);
         Utils.setAlarm(alarmID, nvaHora, context);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
         Date resultdate = new Date(nvaHora);
-
-
         Toast.makeText(context, "Proxima alarma; " + resultdate, Toast.LENGTH_LONG).show();
         //se cambia (horaRep * 60 * 60 * 1000)
     }
