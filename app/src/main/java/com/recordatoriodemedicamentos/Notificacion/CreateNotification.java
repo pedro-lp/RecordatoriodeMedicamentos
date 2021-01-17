@@ -25,18 +25,19 @@ public class CreateNotification {
         //Toast.makeText(context, "El tamaño es; " + MedicamentoProvider.medicamentosList.size(), Toast.LENGTH_SHORT).show();
 
         if (MedicamentoProvider.medicamentosList.size() > 0) {
+            //obtiene la primer hora
             String primerHora = MedicamentoProvider.medicamentosList.get(0).getPrimeraToma();
             String[] parts = primerHora.split(" ");
             String uno = parts[0]; // 123
+            //divide la hora segun el :
             String[] parties = uno.split(":");
             String selectedHour = parties[0]; // 123
             String selectedMinute = parties[1]; // 654321
             Date d = new Date();
-            Toast.makeText(context, "Hora "+d.getHours(), Toast.LENGTH_SHORT).show();
-            if(Integer.parseInt(selectedHour)<d.getHours()){
-                Toast.makeText(context, "Hora "+selectedHour, Toast.LENGTH_SHORT).show();
+            if(Integer.parseInt(selectedHour) < d.getHours()){
                 Recordatorios.sigAlarma(context);
             }else{
+                Toast.makeText(context, "Primer alarma a las :"+d.getHours(), Toast.LENGTH_SHORT).show();
                 Calendar today = Calendar.getInstance();
                 //today.set(Calendar.HOUR_OF_DAY, selectedHour);
                 //today.set(Calendar.MINUTE, selectedMinute);

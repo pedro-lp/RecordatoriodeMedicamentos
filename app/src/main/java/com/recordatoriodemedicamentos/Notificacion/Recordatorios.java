@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Recordatorios extends AppCompatActivity {
     private TextView notificationsTime;
@@ -151,9 +152,14 @@ public class Recordatorios extends AppCompatActivity {
     public static void sigAlarma(Context context){
         int alarmID = 1;
         int horaRep = Integer.parseInt(MedicamentoProvider.medicamentosList.get(0).getRecordar());
-        Long nvaHora = System.currentTimeMillis() + (horaRep * 60 * 1000);
+        Long nvaHora = System.currentTimeMillis() + (horaRep * 60 * 60 * 1000);
         Utils.setAlarm(alarmID, nvaHora, context);
-        Toast.makeText(context, "Proxima alarma; ", Toast.LENGTH_LONG).show();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date resultdate = new Date(nvaHora);
+
+
+        Toast.makeText(context, "Proxima alarma; "+resultdate, Toast.LENGTH_LONG).show();
         //se cambia (horaRep * 60 * 60 * 1000)
     }
 }

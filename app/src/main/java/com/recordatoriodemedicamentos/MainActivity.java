@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         //Se crea instancia de la clase create notification
                         CreateNotification notif = new CreateNotification(getBaseContext());
+                        Toast.makeText(getApplicationContext(), "Actualizando", Toast.LENGTH_SHORT).show();
                     }
                 });
 
