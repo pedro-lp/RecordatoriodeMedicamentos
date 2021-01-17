@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.recordatoriodemedicamentos.Modelo.MedicamentoProvider;
 import com.recordatoriodemedicamentos.R;
 
+import java.security.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -127,20 +128,32 @@ public class Recordatorios extends AppCompatActivity {
                     //AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
                     //long updateInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
                     CharSequence hoy1 = DateFormat.format("yyyy-MM-dd", new Date().getTime());
-                    CharSequence ultimoDia1 = ("2021-01-15");
+                    CharSequence ultimoDia1 = (MedicamentoProvider.medicamentosList.get(0).getFechaFinal());
 
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     Date hoy = dateFormat.parse(hoy1.toString());
                     Date ultimoDia = dateFormat.parse(ultimoDia1.toString());
 
-                    if (hoy.before(ultimoDia)) {
-                        int horaRep = Integer.parseInt(MedicamentoProvider.medicamentosList.get(0).getRecordar());
-                        Utils.setAlarm(alarmID, System.currentTimeMillis() + (horaRep * 60 * 60 * 1000), Recordatorios.this);
+                    if (hoy.before(ultimoDia)||hoy.equals(ultimoDia)) {
+                        sigAlarma(Recordatorios.this);
+
+                        //int horaRep = Integer.parseInt(MedicamentoProvider.medicamentosList.get(0).getRecordar());
+                        //Utils.setAlarm(alarmID, System.currentTimeMillis() + (horaRep * 60 * 60 * 1000), Recordatorios.this);
+
+                        //Toast.makeText(Recordatorios.this, "Ultimo dia; " + ultimoDia, Toast.LENGTH_LONG).show();
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+    public static void sigAlarma(Context context){
+        int alarmID = 1;
+        int horaRep = Integer.parseInt(MedicamentoProvider.medicamentosList.get(0).getRecordar());
+        Long nvaHora = System.currentTimeMillis() + (horaRep * 60 * 1000);
+        Utils.setAlarm(alarmID, nvaHora, context);
+        Toast.makeText(context, "Proxima alarma; ", Toast.LENGTH_LONG).show();
+        //se cambia (horaRep * 60 * 60 * 1000)
     }
 }

@@ -65,9 +65,11 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
 
     class eventoEditar implements View.OnClickListener {
         private Paciente paciente;
+
         public eventoEditar(Paciente paciente) {
             this.paciente = paciente;
         }
+
         @Override
         public void onClick(View v) {
             iPaciente.OpcionEditar(paciente);
@@ -76,9 +78,11 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
 
     class eventoEliminar implements View.OnClickListener {
         private Paciente paciente;
+
         public eventoEliminar(Paciente paciente) {
             this.paciente = paciente;
         }
+
         @Override
         public void onClick(View v) {
             iPaciente.OpcionEliminar(paciente);
@@ -86,7 +90,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.pacien
     }
 
     public class pacienteView extends RecyclerView.ViewHolder {
-        private TextView nombre,edad;
+        private TextView nombre, edad;
         private Button btnEliminar;
 
         public pacienteView(@NonNull View itemView) {

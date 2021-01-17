@@ -75,6 +75,7 @@ public class PacientesFragment extends Fragment implements IPaciente {
         });
         return vista;
     }
+
     public void OpcionEditar(Paciente paciente) {
         edtMed.putString("boton", "modificar");
         edtMed.apply();

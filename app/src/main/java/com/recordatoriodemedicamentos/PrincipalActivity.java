@@ -43,7 +43,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
 
-                    switch (item.getItemId()){
+                    switch (item.getItemId()) {
                         case R.id.nav_pacientes:
                             selectedFragment = new PacientesFragment();
                             break;

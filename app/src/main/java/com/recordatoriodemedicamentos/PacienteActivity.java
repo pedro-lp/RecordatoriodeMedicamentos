@@ -27,6 +27,7 @@ public class PacienteActivity extends AppCompatActivity {
     private Paciente paciente;
     String idPacMod;
     private CircleImageView mCircleImageBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +56,7 @@ public class PacienteActivity extends AppCompatActivity {
             }
         });
     }
+
     public void agregarPaciente() {
         String name = nombre.getText().toString();
         String age = edad.getText().toString();
@@ -68,6 +70,7 @@ public class PacienteActivity extends AppCompatActivity {
             Toast.makeText(this, "Ingrese todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
+
     public void modificarPaciente() {
         final String Nombre = nombre.getText().toString();
         final String Edad = edad.getText().toString();

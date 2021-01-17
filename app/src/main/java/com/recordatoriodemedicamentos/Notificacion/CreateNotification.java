@@ -31,20 +31,25 @@ public class CreateNotification {
             String[] parties = uno.split(":");
             String selectedHour = parties[0]; // 123
             String selectedMinute = parties[1]; // 654321
-
-            Calendar today = Calendar.getInstance();
-            //today.set(Calendar.HOUR_OF_DAY, selectedHour);
-            //today.set(Calendar.MINUTE, selectedMinute);
-            //Toast.makeText(context,"Minutos "+selectedMinute, Toast.LENGTH_SHORT).show();
-            //Toast.makeText(context, "Hora "+selectedHour, Toast.LENGTH_SHORT).show();
-            //Toast.makeText(context, MedicamentoProvider.medicamentosList.get(0).getUltimaToma(), Toast.LENGTH_SHORT).show();
-            //ArrayList<Long> fecha = new ArrayList<>();
-            today.set(Calendar.HOUR_OF_DAY, Integer.parseInt(selectedHour));
-            today.set(Calendar.MINUTE, Integer.parseInt(selectedMinute));
-            today.set(Calendar.SECOND, 0);
-            //fecha.add(today.getTimeInMillis());
-            Utils.setAlarm(alarmID, today.getTimeInMillis(), context);
-
+            Date d = new Date();
+            Toast.makeText(context, "Hora "+d.getHours(), Toast.LENGTH_SHORT).show();
+            if(Integer.parseInt(selectedHour)<d.getHours()){
+                Toast.makeText(context, "Hora "+selectedHour, Toast.LENGTH_SHORT).show();
+                Recordatorios.sigAlarma(context);
+            }else{
+                Calendar today = Calendar.getInstance();
+                //today.set(Calendar.HOUR_OF_DAY, selectedHour);
+                //today.set(Calendar.MINUTE, selectedMinute);
+                //Toast.makeText(context,"Minutos "+selectedMinute, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Hora "+selectedHour, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, MedicamentoProvider.medicamentosList.get(0).getUltimaToma(), Toast.LENGTH_SHORT).show();
+                //ArrayList<Long> fecha = new ArrayList<>();
+                today.set(Calendar.HOUR_OF_DAY, Integer.parseInt(selectedHour));
+                today.set(Calendar.MINUTE, Integer.parseInt(selectedMinute));
+                today.set(Calendar.SECOND, 0);
+                //fecha.add(today.getTimeInMillis());
+                Utils.setAlarm(alarmID, today.getTimeInMillis(), context);
+            }
         }
 
         /*try {

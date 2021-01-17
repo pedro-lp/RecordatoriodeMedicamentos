@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class MedicamentoActivity extends AppCompatActivity implements ComboDialog.ComboListener {
-    EditText nombre, unidad, fechaInicio, fechaFinal, recordar,primeraToma,ultimoToma,existencia;
+    EditText nombre, unidad, fechaInicio, fechaFinal, recordar, primeraToma, ultimoToma, existencia;
     AuthProvider authProvider;
     MedicamentoProvider mediProvider;
     Button btnAgregar;
@@ -151,24 +151,24 @@ public class MedicamentoActivity extends AppCompatActivity implements ComboDialo
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
                         MedicamentoActivity.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                Hour = hourOfDay;
-                                Minute = minute;
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        Hour = hourOfDay;
+                        Minute = minute;
 
-                                String time = Hour + ":" + Minute;
-                                SimpleDateFormat f24Hour = new SimpleDateFormat("HH:mm");
-                                try {
-                                    Date date = f24Hour.parse(time);
+                        String time = Hour + ":" + Minute;
+                        SimpleDateFormat f24Hour = new SimpleDateFormat("HH:mm");
+                        try {
+                            Date date = f24Hour.parse(time);
 
-                                    SimpleDateFormat f12Hour = new SimpleDateFormat("hh:mm aa");
+                            SimpleDateFormat f12Hour = new SimpleDateFormat("hh:mm aa");
 
-                                    primeraToma.setText(f12Hour.format(date));
-                                } catch (ParseException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }, 12, 0, false
+                            primeraToma.setText(f12Hour.format(date));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 12, 0, false
                 );
                 timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 timePickerDialog.updateTime(Hour, Minute);

@@ -115,6 +115,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                             mAuth.signOut();
                                         }
                                     }
+
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
                                     }

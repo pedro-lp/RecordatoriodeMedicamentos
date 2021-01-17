@@ -23,33 +23,33 @@ public class PacienteProvider {
 
     public Task<Void> createPaciente(String idUsuario, Paciente paciente) {
         Map<String, Object> map = new HashMap<>();
-        map.put("Nombre",paciente.getNombre());
+        map.put("Nombre", paciente.getNombre());
         map.put("Edad", paciente.getEdad());
         return mDatabase.child(idUsuario).child(paciente.getId()).setValue(map);
     }
 
     public Task<Void> changePaciente(String idUsuario, Paciente paciente) {
         Map<String, Object> map = new HashMap<>();
-        map.put("Nombre",paciente.getNombre());
+        map.put("Nombre", paciente.getNombre());
         map.put("Edad", paciente.getEdad());
         return mDatabase.child(idUsuario).child(paciente.getId()).setValue(map);
     }
 
-    public void removePaciente(String idUsuario,Paciente paciente,PacienteAdapter pacienteAdapter) {
+    public void removePaciente(String idUsuario, Paciente paciente, PacienteAdapter pacienteAdapter) {
         String idPaciente = String.valueOf(paciente.getId());
         mDatabase.child(idUsuario).child(idPaciente).removeValue();
         pacienteAdapter.eliminarPaciente(paciente);
     }
 
 
-    public void showPaciente(String idUsuario, PacienteAdapter pacienteAdapter, ArrayList arrayList){
+    public void showPaciente(String idUsuario, PacienteAdapter pacienteAdapter, ArrayList arrayList) {
         mDatabase.child(idUsuario).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     arrayList.clear();
                     Paciente paciente = null;
-                    for(DataSnapshot ds: snapshot.getChildren()){
+                    for (DataSnapshot ds : snapshot.getChildren()) {
                         paciente = new Paciente();
                         paciente.setId(ds.getKey());
                         paciente.setNombre(ds.child("Nombre").getValue().toString());
